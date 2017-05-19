@@ -15,13 +15,9 @@ public class Application extends ApplicationSupport {
     @Value("${ui.title:JavaFX приложение}")//
     private String windowTitle;
 
-    @Qualifier("mainView")
+    @Qualifier("authView")
     @Autowired
     private ConfigControllers.View view;
-//
-//    @Qualifier("formView")
-//    @Autowired
-//    private  ConfigurationControllers.View viewForm;
 
     @Override
     public void start(Stage stage) throws Exception {
@@ -30,6 +26,7 @@ public class Application extends ApplicationSupport {
         stage.setResizable(true);
         stage.centerOnScreen();
         stage.show();
+        //TODO close stage, when user was sign in
     }
 
     public static void main(String[] args) {

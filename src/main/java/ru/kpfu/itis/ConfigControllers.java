@@ -4,6 +4,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import ru.kpfu.itis.ui.AdminController;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -15,11 +16,45 @@ import java.io.InputStream;
 @Configuration
 public class ConfigControllers {
 
-    @Bean(name = "mainView")
-    public View getMainView() throws IOException {
+    @Bean(name = "authView")
+    public View getAuthView() throws IOException {
         return loadView("fxml/auth.fxml");
     }
 
+//    @Bean(name = "signUpView")
+//    public View getSignUpView() throws IOException {
+//        return loadView("fxml/signUp.fxml");
+//    }
+
+    @Bean(name = "adminView")
+    public View getAdminView() throws IOException {
+        return loadView("fxml/admin.fxml");
+    }
+
+    @Bean
+    public AdminController getMainController() throws IOException {
+        return (AdminController) getAdminView().getController();
+    }
+
+//    @Bean(name = "userView")
+//    public View getUserView() throws IOException {
+//        return loadView("fxml/user.fxml");
+//    }
+//
+//    @Bean(name = "editCarView")
+//    public View getEditCarView() throws IOException {
+//        return loadView("fxml/editCar.fxml");
+//    }
+//
+//    @Bean(name = "editOrderView")
+//    public View getEditOrderView() throws IOException {
+//        return loadView("fxml/editOrder.fxml");
+//    }
+//
+//    @Bean(name = "formOrderView")
+//    public View getFormOrderView() throws IOException {
+//        return loadView("fxml/formOrder.fxml");
+//    }
 
     private View loadView(String url) throws IOException {
         InputStream fxmlStream = null;
@@ -33,9 +68,8 @@ public class ConfigControllers {
                 fxmlStream.close();
             }
         }
+
     }
-
-
 
     public class View {
         private Parent view;

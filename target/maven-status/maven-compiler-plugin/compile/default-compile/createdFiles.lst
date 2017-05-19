@@ -1,5 +1,3 @@
-ru/kpfu/itis/repository/CarRepository.class
-ru/kpfu/itis/repository/OrderRepository.class
 ru/kpfu/itis/ui/FormOrderController.class
 ru/kpfu/itis/service/UserService.class
 ru/kpfu/itis/service/Verifier.class
@@ -7,20 +5,14 @@ ru/kpfu/itis/service/AuthService.class
 ru/kpfu/itis/service/UserServiceImpl.class
 ru/kpfu/itis/service/AuthServiceImpl.class
 ru/kpfu/itis/repository/UserRepository.class
-ru/kpfu/itis/entity/Order.class
 ru/kpfu/itis/ui/AuthController.class
 ru/kpfu/itis/ConfigControllers$View.class
-ru/kpfu/itis/service/CarService.class
 ru/kpfu/itis/ui/AdminController.class
 ru/kpfu/itis/entity/Token.class
 ru/kpfu/itis/entity/User.class
-ru/kpfu/itis/service/CarServiceImpl.class
-ru/kpfu/itis/service/OrderService.class
 ru/kpfu/itis/ui/SignUpController.class
-ru/kpfu/itis/service/OrderServiceImpl.class
 ru/kpfu/itis/ui/UserController.class
 ru/kpfu/itis/ui/FormCarController.class
 ru/kpfu/itis/ApplicationSupport.class
 ru/kpfu/itis/ConfigControllers.class
 ru/kpfu/itis/Application.class
-ru/kpfu/itis/entity/Car.class

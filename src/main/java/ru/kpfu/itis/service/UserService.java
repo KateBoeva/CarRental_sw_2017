@@ -12,4 +12,6 @@ public interface UserService {
 
     Token auth(User user);
 
+    User save(User user);
+
 }
