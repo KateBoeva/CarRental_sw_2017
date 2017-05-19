@@ -18,9 +18,11 @@ import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 import ru.kpfu.itis.ConfigControllers;
 import ru.kpfu.itis.entity.Token;
+import ru.kpfu.itis.entity.User;
 import ru.kpfu.itis.service.AuthService;
 
 import java.io.IOException;
+import java.net.URL;
 
 /**
  * Created by katemrrr on 12.05.17.
@@ -44,9 +46,16 @@ public class AuthController {
     public void signIn() throws IOException {
         if(isValid()){
 
-            // TODO signIn algorithm
-
-            showAdminFrame();
+            Token token = authService.auth(new User(loginField.getText(), passwordField.getText()));
+            if(token.getStatus() == 1){
+                showAdminFrame();
+            } else if(token.getStatus() == 0){
+                new Alert(Alert.AlertType.INFORMATION, "user")
+                .show();
+            } else {
+                new Alert(Alert.AlertType.ERROR, "not valid user data")
+                        .show();
+            }
         }
     }
 
@@ -81,10 +90,6 @@ public class AuthController {
         signUpStage.setTitle("Регистрация");
         signUpStage.initModality(Modality.WINDOW_MODAL);
 
-//        signUpStage.setScene(new Scene(signUpView.getView()));
-//        signUpStage.setResizable(true);
-//        signUpStage.centerOnScreen();
-
         Scene scene = new Scene(anchPane);
         signUpStage.setScene(scene);
 
@@ -92,22 +97,16 @@ public class AuthController {
         controller.setSignUpStage(signUpStage);
 
         signUpStage.showAndWait();
-
     }
 
     private void showAdminFrame() throws IOException {
         FXMLLoader loader = new FXMLLoader();
         loader.setLocation(AuthController.class.getResource("/fxml/admin.fxml"));
-//        TabPane tabPane = (TabPane) loader.load();
         AnchorPane anchPane = (AnchorPane) loader.load();
 
         Stage adminStage = new Stage();
         adminStage.setTitle("Администратор");
         adminStage.initModality(Modality.WINDOW_MODAL);
-
-//        adminStage.setScene(new Scene(view.getView()));
-//        adminStage.setResizable(true);
-//        adminStage.centerOnScreen();
 
         Scene scene = new Scene(anchPane);
         adminStage.setScene(scene);
@@ -117,5 +116,4 @@ public class AuthController {
 
         adminStage.showAndWait();
     }
-
 }

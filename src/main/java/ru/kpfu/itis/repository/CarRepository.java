@@ -12,7 +12,7 @@ import java.util.List;
  */
 
 
-//@Transactional(propagation = Propagation.MANDATORY)
+@Transactional(propagation = Propagation.MANDATORY)
 public interface CarRepository extends CrudRepository<Car, Long> {
 
     List<Car> findAll();

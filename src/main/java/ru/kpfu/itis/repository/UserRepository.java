@@ -18,7 +18,7 @@ public interface UserRepository extends CrudRepository<User, Long> {
 //    Token auth(User user);
 
     //как в классе
-
-    @Override
-    User save(User s);
+//
+//    @Override
+//    User save(User s);
 }

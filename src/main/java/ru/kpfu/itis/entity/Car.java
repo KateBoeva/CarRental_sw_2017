@@ -29,8 +29,13 @@ public class Car implements Serializable {
     @Column
     private int price;
 
+    @Column
     private int run;
+
+    @Column
     private int power;
+
+    @Column
     private int year;
 
     public Car() {}

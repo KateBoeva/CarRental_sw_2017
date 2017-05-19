@@ -11,7 +11,7 @@ import java.util.List;
  * Created by katemrrr on 12.05.17.
  */
 
-//@Transactional(propagation = Propagation.MANDATORY)
+@Transactional(propagation = Propagation.MANDATORY)
 public interface OrderRepository extends CrudRepository<Order, Long> {
 
     List<Order> findAll();

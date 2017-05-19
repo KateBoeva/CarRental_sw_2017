@@ -5,6 +5,8 @@ import javafx.scene.Parent;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import ru.kpfu.itis.ui.AdminController;
+import ru.kpfu.itis.ui.AuthController;
+import ru.kpfu.itis.ui.SignUpController;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -21,10 +23,20 @@ public class ConfigControllers {
         return loadView("fxml/auth.fxml");
     }
 
-//    @Bean(name = "signUpView")
-//    public View getSignUpView() throws IOException {
-//        return loadView("fxml/signUp.fxml");
-//    }
+    @Bean
+    public AuthController getAuthController() throws IOException {
+        return (AuthController) getAuthView().getController();
+    }
+
+    @Bean(name = "signUpView")
+    public View getSignUpView() throws IOException {
+        return loadView("fxml/signUp.fxml");
+    }
+
+    @Bean
+    public SignUpController getSignUpController() throws IOException {
+        return (SignUpController) getSignUpView().getController();
+    }
 
     @Bean(name = "adminView")
     public View getAdminView() throws IOException {
@@ -32,7 +44,7 @@ public class ConfigControllers {
     }
 
     @Bean
-    public AdminController getMainController() throws IOException {
+    public AdminController getAdminController() throws IOException {
         return (AdminController) getAdminView().getController();
     }
 

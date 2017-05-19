@@ -9,7 +9,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import ru.kpfu.itis.entity.User;
-import ru.kpfu.itis.service.UserService;
+import ru.kpfu.itis.service.AuthService;
 
 
 /**
@@ -22,7 +22,7 @@ public class SignUpController {
     private Logger logger = LoggerFactory.getLogger(SignUpController.class);
 
     @Autowired
-    UserService userService;
+    private AuthService authService;
 
     @FXML private TextField loginTxt;
     @FXML private PasswordField passwordTxt;
@@ -30,8 +30,6 @@ public class SignUpController {
     private Stage signUpStage;
 
     private User user = new User();
-
-//    private AuthController ac = new AuthController(); // show later
 
     @FXML public void initialize() {}
 
@@ -43,21 +41,10 @@ public class SignUpController {
     @FXML
     public void signUp(){
         if (isValidInput()){
-//            user.setLogin(loginTxt.getText());
-//            user.setPassword(passwordTxt.getText());
-//            userService.save(new User(loginTxt.getText(), passwordTxt.getText()));
+            authService.register(new User(loginTxt.getText(), passwordTxt.getText(), false));
             signUpStage.close();
-
-//            Contact contact = new Contact(txtName.getText(), txtPhone.getText(), txtEmail.getText());
-//            contactService.save(contact);
-//            data.add(contact);
         }
     }
-
-//    @PostConstruct
-//    public void generateTestData() {
-//
-//    }
 
 
     public void setSignUpStage(Stage signUpStage) {
@@ -74,8 +61,8 @@ public class SignUpController {
         if (error.equals("")){
             return true;
         } else {
-            Alert alert = new Alert(Alert.AlertType.ERROR, "Error");
-            alert.showAndWait();
+            new Alert(Alert.AlertType.ERROR, "Error")
+                .showAndWait();
             return false;
         }
     }

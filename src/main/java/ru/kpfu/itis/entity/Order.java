@@ -30,10 +30,19 @@ public class Order implements Serializable {
     @Column
     private String model;
 
+    @Column
     private String surname;
+
+    @Column
     private String patronymic;
+
+    @Column
     private String phone;
+
+    @Column
     private String getting;
+
+    @Column
     private String refunding;
 
     public Order() {}
