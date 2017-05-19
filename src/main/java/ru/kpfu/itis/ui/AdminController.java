@@ -7,6 +7,7 @@ import javafx.geometry.Side;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
+import org.aspectj.weaver.ast.Or;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -35,10 +36,12 @@ public class AdminController {
     OrderService orderService;
 
     @FXML private TabPane tabPane;
-    @FXML private TableView<Order> ordersTable;
     @FXML private Tab ordersTab;
-    @FXML private TableView<Car> carTable;
+    @FXML private TableView<Order> ordersTable;
+    @FXML private TableColumn<Order, String> nameColumn;
+    @FXML private TableColumn<Order, String> modelColumn;
     @FXML private Tab carsTab;
+    @FXML private TableView<Car> carTable;
 
 //    @FXML private Label surnameLabel;
 //    @FXML private Label nameLabel;
@@ -61,18 +64,20 @@ public class AdminController {
     public void init() {
 
 //        tabPane.setSide(Side.LEFT);
-//        tabPane.getTabs();
+        tabPane.getTabs();
 
         List<Order> orders = orderService.findAll();
         orderData = FXCollections.observableArrayList(orders);
 
-        TableColumn<Order, String> nameColumn = new TableColumn<>("Имя");
+//        TableColumn<Order, String> nameColumn = new TableColumn<>("Имя");
         nameColumn.setCellValueFactory(new PropertyValueFactory<>("name"));
-
-        TableColumn<Order, String> modelColumn = new TableColumn<>("Модель/марка");
+//        nameColumn.setVisible(true);
+//
+//        TableColumn<Order, String> modelColumn = new TableColumn<>("Модель/марка");
         modelColumn.setCellValueFactory(new PropertyValueFactory<>("model"));
-
-        ordersTable.getColumns().setAll(nameColumn, modelColumn);
+//        modelColumn.setVisible(true);
+//
+//        ordersTable.getColumns().setAll(nameColumn, modelColumn);
 
         //Добавление в таблицу данных из наблюдаемого списка
         ordersTable.setItems(orderData);

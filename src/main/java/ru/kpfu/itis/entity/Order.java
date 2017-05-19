@@ -51,7 +51,6 @@ public class Order implements Serializable {
         this.name = name;
         this.surname = surname;
         this.patronymic = patronymic;
-
         this.model = model;
         this.phone = phone;
         this.getting = getting;

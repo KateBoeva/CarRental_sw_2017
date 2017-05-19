@@ -20,7 +20,12 @@
             <content>
               <AnchorPane fx:id="ordersPage" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                      <children>
-                        <TableView fx:id="ordersTable" layoutX="14.0" layoutY="14.0" prefHeight="334.0" prefWidth="279.0" />
+                        <TableView fx:id="ordersTable" layoutX="14.0" layoutY="14.0" prefHeight="334.0" prefWidth="279.0">
+                           <columns>
+                              <TableColumn fx:id="nameColumn" prefWidth="146.0" text="Name" />
+                              <TableColumn fx:id="modelColumn" minWidth="7.0" prefWidth="132.0" text="Model" />
+                           </columns>
+                        </TableView>
                         <GridPane layoutX="316.0" layoutY="62.0" prefHeight="256.0" prefWidth="242.0">
                           <columnConstraints>
                             <ColumnConstraints hgrow="SOMETIMES" maxWidth="123.0" minWidth="10.0" prefWidth="123.0" />
