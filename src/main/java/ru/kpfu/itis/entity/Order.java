@@ -47,15 +47,17 @@ public class Order implements Serializable {
 
     public Order() {}
 
-    public Order(String name, String surname, String patronymic, String model, String phone, String getting, String refunding) {
-        this.name = name;
+    public Order(String surname, String name, String patronymic, String model, String phone, String getting, String refunding) {
         this.surname = surname;
+        this.name = name;
         this.patronymic = patronymic;
         this.model = model;
         this.phone = phone;
         this.getting = getting;
         this.refunding = refunding;
     }
+
+
 
     public String getName() {
         return name;

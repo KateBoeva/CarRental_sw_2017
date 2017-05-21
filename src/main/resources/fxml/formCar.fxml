@@ -7,11 +7,10 @@
 <?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.RowConstraints?>
-<?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="412.0" prefWidth="393.0" xmlns="http://javafx.com/javafx/8.0.65" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ru.kpfu.itis.ui.FormCarController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="357.0" prefWidth="303.0" xmlns="http://javafx.com/javafx/8.0.65" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ru.kpfu.itis.ui.FormCarController">
     <children>
-        <GridPane layoutX="79.0" layoutY="90.0" prefHeight="256.0" prefWidth="242.0">
+        <GridPane layoutX="34.0" layoutY="35.0" prefHeight="256.0" prefWidth="242.0">
             <columnConstraints>
                 <ColumnConstraints hgrow="SOMETIMES" maxWidth="123.0" minWidth="10.0" prefWidth="111.0" />
                 <ColumnConstraints hgrow="SOMETIMES" maxWidth="139.0" minWidth="10.0" prefWidth="131.0" />
@@ -30,18 +29,13 @@
                 <Label text="Мощность:" GridPane.rowIndex="3" />
                 <Label text="Цена за час:" GridPane.rowIndex="4" />
                 <TextField fx:id="nameField" GridPane.columnIndex="1" />
-                <TextField fx:id="priceField" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                <TextField fx:id="yearField" GridPane.columnIndex="1" GridPane.rowIndex="1" />
                 <TextField fx:id="runField" GridPane.columnIndex="1" GridPane.rowIndex="2" />
                 <TextField fx:id="powerField" GridPane.columnIndex="1" GridPane.rowIndex="3" />
-                <TextField fx:id="yearField" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+                <TextField fx:id="priceField" GridPane.columnIndex="1" GridPane.rowIndex="4" />
             </children>
         </GridPane>
-        <Label layoutX="61.0" layoutY="41.0" text="Изменить автомобиль:">
-            <font>
-                <Font size="24.0" />
-            </font>
-        </Label>
-      <Button layoutX="234.0" layoutY="359.0" mnemonicParsing="false" onAction="#addCar" text="Сохранить" />
-      <Button layoutX="155.0" layoutY="359.0" mnemonicParsing="false" onAction="#cancelForm" text="Отмена" />
+      <Button layoutX="189.0" layoutY="307.0" mnemonicParsing="false" onAction="#addCar" text="Сохранить" />
+      <Button layoutX="116.0" layoutY="307.0" mnemonicParsing="false" onAction="#cancelForm" text="Отмена" />
     </children>
 </AnchorPane>

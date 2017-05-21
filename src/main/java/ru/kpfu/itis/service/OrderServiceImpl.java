@@ -27,8 +27,8 @@ public class OrderServiceImpl implements OrderService {
     // Добавить несколько записей
     @PostConstruct
     public void generateTestData() {
-        save(new Order("Сергей", "Боев", "Петрович", "Kia Sportage", "89872846360", "23.06.2017", "25.06.2017"));
-        save(new Order("Петр", "Боев", "Васильевич", "Chevrolet Lacetti", "89872846360", "20.06.2017", "23.06.2017"));
+        save(new Order("Боев", "Сергей", "Петрович", "Kia Sportage", "89872846360", "23.06.2017", "25.06.2017"));
+        save(new Order("Боев", "Петр", "Васильевич", "Chevrolet Lacetti", "89872846360", "20.06.2017", "23.06.2017"));
     }
 
     @Override

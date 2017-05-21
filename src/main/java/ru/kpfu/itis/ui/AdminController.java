@@ -3,11 +3,8 @@ package ru.kpfu.itis.ui;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
-import javafx.stage.Modality;
 import javafx.stage.Stage;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -51,15 +48,8 @@ public class AdminController {
     @Autowired
     private CarService carService;
 
-    @FXML private TabPane tabPane;
-    @FXML private Tab ordersTab;
-    @FXML private Tab carsTab;
-
     @FXML private TableView<Order> ordersTable;
-
     @FXML private TableView<Car> carsTable;
-    @FXML private TableColumn<Car, String> nameCar;
-    @FXML private TableColumn<Car, String> priceCar;
 
     @FXML private Label surnameLabel;
     @FXML private Label nameLabel;
@@ -74,6 +64,9 @@ public class AdminController {
     @FXML private Label runLabel;
     @FXML private Label powerLabel;
     @FXML private Label priceLabel;
+
+    private Order order;
+    private Car car;
 
     @Autowired
     FormOrderController formOrderController;
@@ -104,18 +97,34 @@ public class AdminController {
         TableColumn<Order, String> nameColumn = new TableColumn<>("Клиент");
         nameColumn.setCellValueFactory(new PropertyValueFactory<>("name"));
 
-        TableColumn<Order, String> surnameColumn = new TableColumn<>("Surname");
-        surnameColumn.setCellValueFactory(new PropertyValueFactory<>("surname"));
-
         TableColumn<Order, String> modelColumn = new TableColumn<>("Модель");
         modelColumn.setCellValueFactory(new PropertyValueFactory<>("model"));
 
-        ordersTable.getColumns().setAll(nameColumn, surnameColumn, modelColumn);
+        ordersTable.getColumns().setAll(nameColumn, modelColumn);
 
         ordersTable.setItems(orderData);
 
         ordersTable.getSelectionModel().selectedItemProperty().addListener(
-                (observable, oldValue, newValue) -> showOrderDetails(newValue));
+                (observable, oldValue, newValue) -> showOrderDetails(newValue)
+        );
+
+        List<Car> cars = carService.findAll();
+        carData = FXCollections.observableArrayList(cars);
+
+        TableColumn<Car, String> nameCarColumn = new TableColumn<>("Автомобиль");
+        nameCarColumn.setCellValueFactory(new PropertyValueFactory<>("name"));
+
+        TableColumn<Car, String> priceColumn = new TableColumn<>("Цена");
+        priceColumn.setCellValueFactory(new PropertyValueFactory<>("price"));
+
+        carsTable.getColumns().setAll(nameCarColumn, priceColumn);
+
+        carsTable.setItems(carData);
+
+        carsTable.getSelectionModel().selectedItemProperty().addListener(
+                (observable, oldValue, newValue) -> showCarDetails(newValue)
+        );
+
     }
 
     private void showOrderDetails(Order order){
@@ -128,6 +137,17 @@ public class AdminController {
             modelLabel.setText(order.getModel());
             gettingLabel.setText(order.getGetting());
             refundingLabel.setText(order.getRefunding());
+        }
+    }
+
+    private void showCarDetails(Car car){
+        car = carsTable.getSelectionModel().getSelectedItem();
+        if (car != null){
+            nameCarLabel.setText(car.getName());
+            priceLabel.setText(String.valueOf(car.getPrice()));
+            runLabel.setText(String.valueOf(car.getRun()));
+            powerLabel.setText(String.valueOf(car.getPower()));
+            yearLabel.setText(String.valueOf(car.getYear()));
         }
     }
 
@@ -145,6 +165,7 @@ public class AdminController {
         createFrame("Добавить бронь", formOrderView, formOrderStage);
         formOrderController.setFormOrderStage(formOrderStage);
         formOrderController.setData(orderData);
+        formOrderController.clearOrder();
         formOrderStage.show();
     }
 
@@ -154,6 +175,7 @@ public class AdminController {
         createFrame("Добавить автомобиль", formCarView, formCarStage);
         formCarController.setFormCarStage(formCarStage);
         formCarController.setData(carData);
+        formCarController.clearCar();
         formCarStage.show();
     }
 
@@ -197,19 +219,35 @@ public class AdminController {
 
     @FXML
     public void updateOrder(){
-        Stage formOrderStage = new Stage();
-        createFrame("Изменить бронь", formOrderView, formOrderStage);
-        formOrderController.setFormOrderStage(formOrderStage);
-        formOrderController.setData(orderData);
-        formOrderStage.show();
+        Order order = ordersTable.getSelectionModel().getSelectedItem();
+        if (order != null){
+            Stage formOrderStage = new Stage();
+            createFrame("Изменить бронь", formOrderView, formOrderStage);
+            formOrderController.setFormOrderStage(formOrderStage);
+            formOrderController.setData(orderData);
+            formOrderController.fillOrder(order);
+            formOrderStage.show();
+        }
     }
 
     @FXML
     public void updateCar(){
-        Stage formCarStage = new Stage();
-        createFrame("Изменить автомобиль", formCarView, formCarStage);
-        formCarController.setFormCarStage(formCarStage);
-        formCarController.setData(carData);
-        formCarStage.show();
+        Car car = carsTable.getSelectionModel().getSelectedItem();
+        if (car != null){
+            Stage formCarStage = new Stage();
+            createFrame("Изменить автомобиль", formCarView, formCarStage);
+            formCarController.setFormCarStage(formCarStage);
+            formCarController.setData(carData);
+            formCarController.fillCar(car);
+            formCarStage.show();
+        }
+    }
+
+    public Order getOrder() {
+        return order;
+    }
+
+    public void setOrder(Order order) {
+        this.order = order;
     }
 }

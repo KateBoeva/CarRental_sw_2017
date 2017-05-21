@@ -17,7 +17,9 @@ import static ru.kpfu.itis.utils.Utils.isEmpty;
 
 
 public class FormCarController {
+
     private Stage formCarStage;
+    private Long carId;
 
     public void setFormCarStage(Stage formCarStage) {
         this.formCarStage = formCarStage;
@@ -45,14 +47,20 @@ public class FormCarController {
     @FXML
     public void addCar(){
         if (isValidInput()){
-            Car car = new Car(nameField.getText(), Integer.parseInt(priceField.getText()), Integer.parseInt(runField.getText()), Integer.parseInt(powerField.getText()), Integer.parseInt(yearField.getText()));
-            carService.save(car);
-            data.add(car);
-
+            Car newCar = new Car(nameField.getText(), Integer.parseInt(priceField.getText()), Integer.parseInt(runField.getText()), Integer.parseInt(powerField.getText()), Integer.parseInt(yearField.getText()));
+            newCar.setId(carId);
+            carService.save(newCar);
+            for (Car car : data) {
+                if(car.getId() == newCar.getId()){
+                    data.remove(car);
+                    break;
+                }
+            }
+            data.add(newCar);
             formCarStage.close();
         }
     }
-//
+
     public boolean isValidInput(){
         boolean isError = false;
 
@@ -78,6 +86,24 @@ public class FormCarController {
     @FXML
     public void cancelForm(){
         formCarStage.close();
+    }
+
+    public ObservableList<Car> getData() {
+        return data;
+    }
+
+    public void fillCar(Car car) {
+        carId = car.getId();
+
+        nameField.setText(car.getName());
+        priceField.setText(java.lang.String.valueOf(car.getPrice()));
+        runField.setText(java.lang.String.valueOf(car.getRun()));
+        powerField.setText(java.lang.String.valueOf(car.getPower()));
+        yearField.setText(java.lang.String.valueOf(car.getYear()));
+    }
+
+    public void clearCar() {
+        fillCar(new Car("", 0, 0, 0, 0));
     }
 
 }

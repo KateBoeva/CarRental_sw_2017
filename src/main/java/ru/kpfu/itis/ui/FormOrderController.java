@@ -17,6 +17,7 @@ import static ru.kpfu.itis.utils.Utils.isEmpty;
 public class FormOrderController {
 
     private Stage formOrderStage;
+    private Long orderId;
 
     public void setFormOrderStage(Stage formOrderStage) {
         this.formOrderStage = formOrderStage;
@@ -39,12 +40,18 @@ public class FormOrderController {
     @FXML public void initialize() {}
 
     @FXML
-
     public void addOrder(){
         if (isValidInput()){
-            Order order = new Order(surnameField.getText(), nameField.getText(), patronymicField.getText(), modelField.getText(), phoneField.getText(), gettingField.getText(), refundingField.getText());
-            orderService.save(order);
-            data.add(order);
+            Order newOrder = new Order(surnameField.getText(), nameField.getText(), patronymicField.getText(), modelField.getText(), phoneField.getText(), gettingField.getText(), refundingField.getText());
+            newOrder.setId(orderId);
+            orderService.save(newOrder);
+            for (Order order : data) {
+                if(order.getId() == newOrder.getId()){
+                    data.remove(order);
+                    break;
+                }
+            }
+            data.add(newOrder);
             formOrderStage.close();
         }
     }
@@ -78,10 +85,26 @@ public class FormOrderController {
 
     @FXML
     public void cancelForm(){
-//        formOrderStage.close();
+        formOrderStage.close();
     }
 
     public ObservableList<Order> getData() {
         return data;
+    }
+
+    public void fillOrder(Order order) {
+        orderId = order.getId();
+
+        surnameField.setText(order.getSurname());
+        nameField.setText(order.getName());
+        patronymicField.setText(order.getPatronymic());
+        phoneField.setText(order.getPhone());
+        modelField.setText(order.getModel());
+        gettingField.setText(order.getGetting());
+        refundingField.setText(order.getRefunding());
+    }
+
+    public void clearOrder() {
+        fillOrder(new Order("", "", "", "", "", "", ""));
     }
 }

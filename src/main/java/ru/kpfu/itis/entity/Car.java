@@ -20,6 +20,7 @@ import java.io.Serializable;
 public class Car implements Serializable {
 
     @Id
+    @PrimaryKeyJoinColumn
     @GeneratedValue
     private Long id;
 
