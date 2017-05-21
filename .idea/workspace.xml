@@ -2,49 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="aa6e520f-5c5e-4fd7-a400-9f51a28b8b85" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/ru/kpfu/itis/utils/Utils.java" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/resources/fxml/editOrder.fxml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/fxml/editCar.fxml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/fxml/editOrder.fxml" afterPath="" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/resources/fxml/editCar.fxml" afterPath="$PROJECT_DIR$/src/main/resources/fxml/formCar.fxml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/ru/kpfu/itis/Application.class" afterPath="$PROJECT_DIR$/target/classes/ru/kpfu/itis/Application.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/ru/kpfu/itis/ApplicationSupport.class" afterPath="$PROJECT_DIR$/target/classes/ru/kpfu/itis/ApplicationSupport.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/ru/kpfu/itis/ConfigControllers$View.class" afterPath="$PROJECT_DIR$/target/classes/ru/kpfu/itis/ConfigControllers$View.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/ru/kpfu/itis/ConfigControllers.class" afterPath="$PROJECT_DIR$/target/classes/ru/kpfu/itis/ConfigControllers.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/ru/kpfu/itis/repository/UserRepository.class" afterPath="$PROJECT_DIR$/target/classes/ru/kpfu/itis/repository/UserRepository.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/ru/kpfu/itis/service/AuthServiceImpl.class" afterPath="$PROJECT_DIR$/target/classes/ru/kpfu/itis/service/AuthServiceImpl.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/ru/kpfu/itis/ui/AdminController.class" afterPath="$PROJECT_DIR$/target/classes/ru/kpfu/itis/ui/AdminController.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/ru/kpfu/itis/ui/AuthController.class" afterPath="$PROJECT_DIR$/target/classes/ru/kpfu/itis/ui/AuthController.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/ru/kpfu/itis/ui/FormCarController.class" afterPath="$PROJECT_DIR$/target/classes/ru/kpfu/itis/ui/FormCarController.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/ru/kpfu/itis/ui/FormOrderController.class" afterPath="$PROJECT_DIR$/target/classes/ru/kpfu/itis/ui/FormOrderController.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/ru/kpfu/itis/ui/SignUpController.class" afterPath="$PROJECT_DIR$/target/classes/ru/kpfu/itis/ui/SignUpController.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/ru/kpfu/itis/ui/UserController.class" afterPath="$PROJECT_DIR$/target/classes/ru/kpfu/itis/ui/UserController.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/ru/kpfu/itis/Application.java" afterPath="$PROJECT_DIR$/src/main/java/ru/kpfu/itis/Application.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/ru/kpfu/itis/ApplicationSupport.java" afterPath="$PROJECT_DIR$/src/main/java/ru/kpfu/itis/ApplicationSupport.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/ru/kpfu/itis/ConfigControllers.java" afterPath="$PROJECT_DIR$/src/main/java/ru/kpfu/itis/ConfigControllers.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/ru/kpfu/itis/repository/CarRepository.java" afterPath="$PROJECT_DIR$/src/main/java/ru/kpfu/itis/repository/CarRepository.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/ru/kpfu/itis/repository/OrderRepository.java" afterPath="$PROJECT_DIR$/src/main/java/ru/kpfu/itis/repository/OrderRepository.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/ru/kpfu/itis/repository/UserRepository.java" afterPath="$PROJECT_DIR$/src/main/java/ru/kpfu/itis/repository/UserRepository.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/ru/kpfu/itis/service/AuthServiceImpl.java" afterPath="$PROJECT_DIR$/src/main/java/ru/kpfu/itis/service/AuthServiceImpl.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/ru/kpfu/itis/service/CarServiceImpl.java" afterPath="$PROJECT_DIR$/src/main/java/ru/kpfu/itis/service/CarServiceImpl.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/ru/kpfu/itis/service/OrderServiceImpl.java" afterPath="$PROJECT_DIR$/src/main/java/ru/kpfu/itis/service/OrderServiceImpl.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/ru/kpfu/itis/ui/AdminController.java" afterPath="$PROJECT_DIR$/src/main/java/ru/kpfu/itis/ui/AdminController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/ru/kpfu/itis/ui/AuthController.java" afterPath="$PROJECT_DIR$/src/main/java/ru/kpfu/itis/ui/AuthController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/ru/kpfu/itis/ui/FormCarController.java" afterPath="$PROJECT_DIR$/src/main/java/ru/kpfu/itis/ui/FormCarController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/ru/kpfu/itis/ui/FormOrderController.java" afterPath="$PROJECT_DIR$/src/main/java/ru/kpfu/itis/ui/FormOrderController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/ru/kpfu/itis/ui/SignUpController.java" afterPath="$PROJECT_DIR$/src/main/java/ru/kpfu/itis/ui/SignUpController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/ru/kpfu/itis/ui/UserController.java" afterPath="$PROJECT_DIR$/src/main/java/ru/kpfu/itis/ui/UserController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/fxml/admin.fxml" afterPath="$PROJECT_DIR$/src/main/resources/fxml/admin.fxml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/fxml/auth.fxml" afterPath="$PROJECT_DIR$/src/main/resources/fxml/auth.fxml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/fxml/formOrder.fxml" afterPath="$PROJECT_DIR$/src/main/resources/fxml/formOrder.fxml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/fxml/signUp.fxml" afterPath="$PROJECT_DIR$/src/main/resources/fxml/signUp.fxml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/fxml/user.fxml" afterPath="$PROJECT_DIR$/src/main/resources/fxml/user.fxml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/fxml/admin.fxml" afterPath="$PROJECT_DIR$/target/classes/fxml/admin.fxml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/fxml/auth.fxml" afterPath="$PROJECT_DIR$/target/classes/fxml/auth.fxml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/fxml/formOrder.fxml" afterPath="$PROJECT_DIR$/target/classes/fxml/formOrder.fxml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/fxml/signUp.fxml" afterPath="$PROJECT_DIR$/target/classes/fxml/signUp.fxml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/fxml/user.fxml" afterPath="$PROJECT_DIR$/target/classes/fxml/user.fxml" />
     </list>
     <ignored path="CarRental.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -122,8 +80,8 @@
       <file leaf-file-name="Utils.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/ru/kpfu/itis/utils/Utils.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="465">
-              <caret line="31" column="18" selection-start-line="31" selection-start-column="18" selection-end-line="42" selection-end-column="5" />
+            <state relative-caret-position="212">
+              <caret line="36" column="35" selection-start-line="36" selection-start-column="35" selection-end-line="36" selection-end-column="35" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -170,7 +128,7 @@
       <file leaf-file-name="SignUpController.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/ru/kpfu/itis/ui/SignUpController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="261">
+            <state relative-caret-position="546">
               <caret line="40" column="31" selection-start-line="40" selection-start-column="31" selection-end-line="40" selection-end-column="31" />
               <folding>
                 <element signature="imports" expanded="true" />
@@ -182,8 +140,8 @@
       <file leaf-file-name="AuthController.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/ru/kpfu/itis/ui/AuthController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1183">
-              <caret line="95" column="5" selection-start-line="95" selection-start-column="5" selection-end-line="95" selection-end-column="5" />
+            <state relative-caret-position="685">
+              <caret line="74" column="0" selection-start-line="74" selection-start-column="0" selection-end-line="74" selection-end-column="0" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="docComment;class#AuthController#0" expanded="false" />
@@ -1026,7 +984,7 @@
       <workItem from="1494602008248" duration="3583000" />
       <workItem from="1494607690146" duration="10872000" />
       <workItem from="1494914028247" duration="24011000" />
-      <workItem from="1495025314095" duration="43155000" />
+      <workItem from="1495025314095" duration="43377000" />
     </task>
     <task id="LOCAL-00001" summary="add pages">
       <created>1495220824347</created>
@@ -1049,11 +1007,18 @@
       <option name="project" value="LOCAL" />
       <updated>1495226659027</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="fix loader">
+      <created>1495365089045</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1495365089045</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="81621000" />
+    <option name="totallyTimeSpent" value="81843000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1440" height="900" extended-state="0" />
@@ -1103,7 +1068,8 @@
     <MESSAGE value="add pages" />
     <MESSAGE value="add auth&#10;fix beans" />
     <MESSAGE value="fix admin" />
-    <option name="LAST_COMMIT_MESSAGE" value="fix admin" />
+    <MESSAGE value="fix loader" />
+    <option name="LAST_COMMIT_MESSAGE" value="fix loader" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1532,16 +1498,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/ru/kpfu/itis/ui/SignUpController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="261">
-          <caret line="40" column="31" selection-start-line="40" selection-start-column="31" selection-end-line="40" selection-end-column="31" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/ru/kpfu/itis/ApplicationSupport.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="180">
@@ -1554,16 +1510,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="43">
           <caret line="40" column="18" selection-start-line="40" selection-start-column="18" selection-end-line="40" selection-end-column="18" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/ru/kpfu/itis/utils/Utils.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="465">
-          <caret line="31" column="18" selection-start-line="31" selection-start-column="18" selection-end-line="42" selection-end-column="5" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -1588,10 +1534,30 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/ru/kpfu/itis/ui/SignUpController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="546">
+          <caret line="40" column="31" selection-start-line="40" selection-start-column="31" selection-end-line="40" selection-end-column="31" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/ru/kpfu/itis/utils/Utils.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="212">
+          <caret line="36" column="35" selection-start-line="36" selection-start-column="35" selection-end-line="36" selection-end-column="35" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/ru/kpfu/itis/ui/AuthController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1183">
-          <caret line="95" column="5" selection-start-line="95" selection-start-column="5" selection-end-line="95" selection-end-column="5" />
+        <state relative-caret-position="685">
+          <caret line="74" column="0" selection-start-line="74" selection-start-column="0" selection-end-line="74" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="docComment;class#AuthController#0" expanded="false" />
