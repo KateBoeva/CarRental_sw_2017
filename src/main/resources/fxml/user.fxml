@@ -12,7 +12,7 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="412.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.65" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ru.kpfu.itis.ui.UserController">
     <children>
-        <TableView layoutX="21.0" layoutY="62.0" prefHeight="308.0" prefWidth="279.0">
+        <TableView fx:id="table" layoutX="21.0" layoutY="62.0" prefHeight="308.0" prefWidth="279.0">
             <columns>
                 <TableColumn fx:id="modelColumn" prefWidth="138.0" text="Модель" />
                 <TableColumn fx:id="priceColumn" prefWidth="140.0" text="Цена за час" />
