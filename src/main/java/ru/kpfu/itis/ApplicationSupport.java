@@ -22,7 +22,7 @@ public abstract class ApplicationSupport extends Application {
         context.close();
     }
 
-    static void launchApp(Class<? extends ApplicationSupport> appClass, String[] args) {
+    protected static void launchApp(Class<? extends ApplicationSupport> appClass, String[] args) {
         ApplicationSupport.savedArgs = args;
         Application.launch(appClass, args);
     }

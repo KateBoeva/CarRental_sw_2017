@@ -16,7 +16,6 @@ import java.util.function.Consumer;
  */
 
 @Service
-@Transactional
 public class AuthServiceImpl implements AuthService {
 
     @Autowired

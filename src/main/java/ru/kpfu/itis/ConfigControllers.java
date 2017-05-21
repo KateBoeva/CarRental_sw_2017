@@ -4,9 +4,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import ru.kpfu.itis.ui.AdminController;
-import ru.kpfu.itis.ui.AuthController;
-import ru.kpfu.itis.ui.SignUpController;
+import ru.kpfu.itis.ui.*;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -23,19 +21,9 @@ public class ConfigControllers {
         return loadView("fxml/auth.fxml");
     }
 
-    @Bean
-    public AuthController getAuthController() throws IOException {
-        return (AuthController) getAuthView().getController();
-    }
-
     @Bean(name = "signUpView")
     public View getSignUpView() throws IOException {
         return loadView("fxml/signUp.fxml");
-    }
-
-    @Bean
-    public SignUpController getSignUpController() throws IOException {
-        return (SignUpController) getSignUpView().getController();
     }
 
     @Bean(name = "adminView")
@@ -43,30 +31,50 @@ public class ConfigControllers {
         return loadView("fxml/admin.fxml");
     }
 
+    @Bean(name = "userView")
+    public View getUserView() throws IOException {
+        return loadView("fxml/user.fxml");
+    }
+
+    @Bean(name = "formCarView")
+    public View getFormCarView() throws IOException {
+        return loadView("fxml/formCar.fxml");
+    }
+
+    @Bean(name = "formOrderView")
+    public View getFormOrderView() throws IOException {
+        return loadView("fxml/formOrder.fxml");
+    }
+
+    @Bean
+    public AuthController getAuthController() throws IOException {
+        return (AuthController) getAuthView().getController();
+    }
+
+    @Bean
+    public SignUpController getSignUpController() throws IOException {
+        return (SignUpController) getSignUpView().getController();
+    }
+
     @Bean
     public AdminController getAdminController() throws IOException {
         return (AdminController) getAdminView().getController();
     }
 
-//    @Bean(name = "userView")
-//    public View getUserView() throws IOException {
-//        return loadView("fxml/user.fxml");
-//    }
-//
-//    @Bean(name = "editCarView")
-//    public View getEditCarView() throws IOException {
-//        return loadView("fxml/editCar.fxml");
-//    }
-//
-//    @Bean(name = "editOrderView")
-//    public View getEditOrderView() throws IOException {
-//        return loadView("fxml/editOrder.fxml");
-//    }
-//
-//    @Bean(name = "formOrderView")
-//    public View getFormOrderView() throws IOException {
-//        return loadView("fxml/formOrder.fxml");
-//    }
+    @Bean
+    public UserController getUserController() throws IOException {
+        return (UserController) getUserView().getController();
+    }
+
+    @Bean
+    public FormOrderController getFormOrderController() throws IOException {
+        return (FormOrderController) getFormOrderView().getController();
+    }
+
+    @Bean
+    public FormCarController getFormCarController() throws IOException {
+        return (FormCarController) getFormCarView().getController();
+    }
 
     private View loadView(String url) throws IOException {
         InputStream fxmlStream = null;

@@ -9,7 +9,7 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="412.0" prefWidth="393.0" xmlns="http://javafx.com/javafx/8.0.65" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="412.0" prefWidth="393.0" xmlns="http://javafx.com/javafx/8.0.65" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ru.kpfu.itis.ui.FormOrderController">
     <children>
         <GridPane layoutX="79.0" layoutY="90.0" prefHeight="256.0" prefWidth="242.0">
             <columnConstraints>
@@ -33,13 +33,13 @@
                 <Label text="Марка/модель:" GridPane.rowIndex="4" />
                 <Label text="Дата выдачи:" GridPane.rowIndex="5" />
                 <Label text="Дата возврата:" GridPane.rowIndex="6" />
-                <TextField GridPane.columnIndex="1" />
-                <TextField GridPane.columnIndex="1" GridPane.rowIndex="1" />
-                <TextField GridPane.columnIndex="1" GridPane.rowIndex="2" />
-                <TextField GridPane.columnIndex="1" GridPane.rowIndex="3" />
-                <TextField GridPane.columnIndex="1" GridPane.rowIndex="4" />
-                <TextField GridPane.columnIndex="1" GridPane.rowIndex="5" />
-                <TextField GridPane.columnIndex="1" GridPane.rowIndex="6" />
+                <TextField fx:id="surnameField" GridPane.columnIndex="1" />
+                <TextField fx:id="nameField" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                <TextField fx:id="patronymicField" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                <TextField fx:id="phoneField" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                <TextField fx:id="modelField" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+                <TextField fx:id="gettingField" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+                <TextField fx:id="refundingField" GridPane.columnIndex="1" GridPane.rowIndex="6" />
             </children>
         </GridPane>
         <Label layoutX="100.0" layoutY="34.0" text="Изменить бронь">
@@ -47,7 +47,7 @@
                 <Font size="24.0" />
             </font>
         </Label>
-        <Button layoutX="157.0" layoutY="364.0" mnemonicParsing="false" text="Сохранить" />
-        <Button layoutX="253.0" layoutY="364.0" mnemonicParsing="false" text="Отмена" />
+        <Button layoutX="157.0" layoutY="364.0" mnemonicParsing="false" onAction="#addOrder" text="Сохранить" />
+        <Button layoutX="253.0" layoutY="364.0" mnemonicParsing="false" onAction="#cancelForm" text="Отмена" />
     </children>
 </AnchorPane>

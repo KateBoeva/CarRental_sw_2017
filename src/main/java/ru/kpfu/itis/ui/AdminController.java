@@ -3,55 +3,85 @@ package ru.kpfu.itis.ui;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
-import javafx.geometry.Side;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.layout.AnchorPane;
+import javafx.stage.Modality;
 import javafx.stage.Stage;
-import org.aspectj.weaver.ast.Or;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
-import org.springframework.stereotype.Controller;
+import org.springframework.beans.factory.annotation.Qualifier;
+import ru.kpfu.itis.ConfigControllers;
 import ru.kpfu.itis.entity.Car;
 import ru.kpfu.itis.entity.Order;
+import ru.kpfu.itis.service.CarService;
 import ru.kpfu.itis.service.OrderService;
 
 import javax.annotation.PostConstruct;
+import java.io.IOException;
 import java.util.List;
+
+import static ru.kpfu.itis.utils.Utils.showFrame;
+
 
 /**
  * Created by katemrrr on 12.05.17.
  */
 
-//@Component
 @SuppressWarnings("SpringJavaAutowiringInspection")
 public class AdminController {
 
-    private Logger logger = LoggerFactory.getLogger(SignUpController.class);
+    private Logger logger = LoggerFactory.getLogger(AdminController.class);
 
     private Stage adminStage;
 
+    public Stage getAdminStage() {
+        return adminStage;
+    }
+
+    public void setAdminStage(Stage adminStage) {
+        this.adminStage = adminStage;
+    }
+
     @Autowired
-    OrderService orderService;
+    private OrderService orderService;
+
+    @Autowired
+    private CarService carService;
 
     @FXML private TabPane tabPane;
     @FXML private Tab ordersTab;
-    @FXML private TableView<Order> ordersTable;
-    @FXML private TableColumn<Order, String> nameColumn;
-    @FXML private TableColumn<Order, String> modelColumn;
     @FXML private Tab carsTab;
-    @FXML private TableView<Car> carTable;
 
-//    @FXML private Label surnameLabel;
-//    @FXML private Label nameLabel;
-//    @FXML private Label patronymicLabel;
-//    @FXML private Label phoneLabel;
-//    @FXML private Label modelLabel;
-//    @FXML private Label gettingLabel;
-//    @FXML private Label refundingLabel;
+    @FXML private TableView<Order> ordersTable;
+
+    @FXML private TableView<Car> carsTable;
+    @FXML private TableColumn<Car, String> nameCar;
+    @FXML private TableColumn<Car, String> priceCar;
+
+    @FXML private Label surnameLabel;
+    @FXML private Label nameLabel;
+    @FXML private Label patronymicLabel;
+    @FXML private Label phoneLabel;
+    @FXML private Label modelLabel;
+    @FXML private Label gettingLabel;
+    @FXML private Label refundingLabel;
+
+    @FXML private Label nameCarLabel;
+    @FXML private Label yearLabel;
+    @FXML private Label runLabel;
+    @FXML private Label powerLabel;
+    @FXML private Label priceLabel;
 
     private ObservableList<Car> carData;
+
+    public void setOrderData(ObservableList<Order> orderData) {
+        this.orderData = orderData;
+    }
+
     private ObservableList<Order> orderData;
 
     @FXML
@@ -63,28 +93,122 @@ public class AdminController {
     @PostConstruct
     public void init() {
 
-//        tabPane.setSide(Side.LEFT);
-        tabPane.getTabs();
-
         List<Order> orders = orderService.findAll();
         orderData = FXCollections.observableArrayList(orders);
 
-//        TableColumn<Order, String> nameColumn = new TableColumn<>("Имя");
-        nameColumn.setCellValueFactory(new PropertyValueFactory<>("name"));
-//        nameColumn.setVisible(true);
-//
-//        TableColumn<Order, String> modelColumn = new TableColumn<>("Модель/марка");
-        modelColumn.setCellValueFactory(new PropertyValueFactory<>("model"));
-//        modelColumn.setVisible(true);
-//
-//        ordersTable.getColumns().setAll(nameColumn, modelColumn);
+//        showOrderDetails(null);
 
-        //Добавление в таблицу данных из наблюдаемого списка
+        TableColumn<Order, String> nameColumn = new TableColumn<>("Клиент");
+        nameColumn.setCellValueFactory(new PropertyValueFactory<>("name"));
+
+        TableColumn<Order, String> modelColumn = new TableColumn<>("Модель");
+        modelColumn.setCellValueFactory(new PropertyValueFactory<>("model"));
+
+        ordersTable.getColumns().setAll(nameColumn, modelColumn);
+
         ordersTable.setItems(orderData);
     }
 
+//    @FXML private Label nameCarLabel;
+//    @FXML private Label yearLabel;
+//    @FXML private Label runLabel;
+//    @FXML private Label powerLabel;
+//    @FXML private Label priceLabel;
 
-    public void setAdminStage(Stage adminStage) {
-        this.adminStage = adminStage;
+
+    private void showCarDetails(Car car){
+        if (car != null){
+            nameCarLabel.setText(car.getName());
+//            yearLabel
+
+        } else {
+
+        }
+    }
+
+    private void showOrderDetails(Order order){
+        if (order != null){
+            surnameLabel.setText(order.getSurname());
+            nameLabel.setText(order.getName());
+            patronymicLabel.setText(order.getPatronymic());
+            phoneLabel.setText(String.valueOf(order.getPhone()));
+            modelLabel.setText(order.getModel());
+            gettingLabel.setText(order.getGetting());
+            refundingLabel.setText(order.getRefunding());
+        } else {
+            surnameLabel.setText("");
+            nameLabel.setText("");
+            patronymicLabel.setText("");
+            phoneLabel.setText("");
+            modelLabel.setText("");
+            gettingLabel.setText("");
+            refundingLabel.setText("");
+        }
+    }
+
+    @Qualifier("formOrderView")
+    @Autowired
+    private ConfigControllers.View formOrderView;
+
+    @Qualifier("formCarView")
+    @Autowired
+    private ConfigControllers.View formCarView;
+
+    @FXML
+    public void addCar() throws IOException {
+        showFrame("Добавить автомобиль", formOrderView);
+    }
+
+    @FXML
+    public void addOrder() throws IOException{
+        showFrame("Добавить бронь", formOrderView);
+    }
+
+    @FXML
+    public void deleteCar(){
+
+        Car car = carsTable.getSelectionModel().getSelectedItem();
+        if (car != null){
+            carService.delete(car);
+        }
+
+        int index = carsTable.getSelectionModel().getSelectedIndex();
+
+        if (index >= 0) {
+            carsTable.getItems().remove(index);
+        } else {
+            Alert alert = new Alert(Alert.AlertType.ERROR, "Ошибка");
+            alert.show();
+        }
+
+    }
+
+    @FXML
+    public void deleteOrder(){
+
+        Order order = ordersTable.getSelectionModel().getSelectedItem();
+        if (order != null){
+            orderService.delete(order);
+        }
+
+        int index = ordersTable.getSelectionModel().getSelectedIndex();
+
+        if (index >= 0) {
+            ordersTable.getItems().remove(index);
+        } else {
+            Alert alert = new Alert(Alert.AlertType.ERROR, "Ошибка");
+            alert.show();
+        }
+
+    }
+
+    @FXML
+    public void updateOrder(){
+        showFrame("Изменить бронь", formOrderView);
+    }
+
+    @FXML
+    public void updateCar(){
+        showFrame("Изменить автомобиль", formCarView);
     }
 }

@@ -1,6 +1,9 @@
 package ru.kpfu.itis;
 
+import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
 import javafx.scene.Scene;
+import javafx.scene.control.Button;
 import javafx.stage.Stage;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
@@ -12,7 +15,8 @@ import org.springframework.context.annotation.Lazy;
 @SpringBootApplication
 public class Application extends ApplicationSupport {
 
-    @Value("${ui.title:JavaFX приложение}")//
+    //TODO
+    @Value("Hello!")
     private String windowTitle;
 
     @Qualifier("authView")
@@ -32,5 +36,4 @@ public class Application extends ApplicationSupport {
     public static void main(String[] args) {
         launchApp(Application.class, args);
     }
-
 }

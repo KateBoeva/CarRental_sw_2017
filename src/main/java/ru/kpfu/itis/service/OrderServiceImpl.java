@@ -15,11 +15,14 @@ import java.util.List;
  */
 
 @Service
-@Transactional
 public class OrderServiceImpl implements OrderService {
 
+    private final OrderRepository orderRepository;
+
     @Autowired
-    OrderRepository orderRepository;
+    public OrderServiceImpl(OrderRepository orderRepository) {
+        this.orderRepository = orderRepository;
+    }
 
     // Добавить несколько записей
     @PostConstruct

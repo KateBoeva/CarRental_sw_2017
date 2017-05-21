@@ -4,7 +4,6 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.Tab?>
 <?import javafx.scene.control.TabPane?>
-<?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.ColumnConstraints?>
@@ -20,12 +19,7 @@
             <content>
               <AnchorPane fx:id="ordersPage" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                      <children>
-                        <TableView fx:id="ordersTable" layoutX="14.0" layoutY="14.0" prefHeight="334.0" prefWidth="279.0">
-                           <columns>
-                              <TableColumn fx:id="nameColumn" prefWidth="146.0" text="Name" />
-                              <TableColumn fx:id="modelColumn" minWidth="7.0" prefWidth="132.0" text="Model" />
-                           </columns>
-                        </TableView>
+                        <TableView fx:id="ordersTable" layoutX="14.0" layoutY="14.0" prefHeight="334.0" prefWidth="279.0" />
                         <GridPane layoutX="316.0" layoutY="62.0" prefHeight="256.0" prefWidth="242.0">
                           <columnConstraints>
                             <ColumnConstraints hgrow="SOMETIMES" maxWidth="123.0" minWidth="10.0" prefWidth="123.0" />
@@ -62,9 +56,9 @@
                               <Font size="18.0" />
                            </font>
                         </Label>
-                        <Button layoutX="333.0" layoutY="335.0" mnemonicParsing="false" text="Добавить" />
-                        <Button layoutX="419.0" layoutY="335.0" mnemonicParsing="false" text="Удалить" />
-                        <Button layoutX="496.0" layoutY="335.0" mnemonicParsing="false" text="Изменить" />
+                        <Button layoutX="333.0" layoutY="335.0" mnemonicParsing="false" onAction="#addOrder" text="Добавить" />
+                        <Button layoutX="419.0" layoutY="335.0" mnemonicParsing="false" onAction="#deleteOrder" text="Удалить" />
+                        <Button layoutX="496.0" layoutY="335.0" mnemonicParsing="false" onAction="#updateOrder" text="Изменить" />
                      </children>
                   </AnchorPane>
             </content>
@@ -73,12 +67,7 @@
               <content>
                   <AnchorPane fx:id="cars" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                       <children>
-                          <TableView layoutX="14.0" layoutY="14.0" prefHeight="334.0" prefWidth="279.0">
-                              <columns>
-                                  <TableColumn prefWidth="138.0" text="C1" />
-                                  <TableColumn prefWidth="140.0" text="C2" />
-                              </columns>
-                          </TableView>
+                          <TableView layoutX="14.0" layoutY="14.0" prefHeight="334.0" prefWidth="279.0" />
                           <GridPane layoutX="316.0" layoutY="62.0" prefHeight="256.0" prefWidth="242.0">
                               <columnConstraints>
                                   <ColumnConstraints hgrow="SOMETIMES" maxWidth="123.0" minWidth="10.0" prefWidth="123.0" />
@@ -109,9 +98,9 @@
                                   <Font size="18.0" />
                               </font>
                           </Label>
-                        <Button layoutX="333.0" layoutY="335.0" mnemonicParsing="false" text="Добавить" />
-                        <Button layoutX="419.0" layoutY="335.0" mnemonicParsing="false" text="Удалить" />
-                        <Button layoutX="496.0" layoutY="335.0" mnemonicParsing="false" text="Изменить" />
+                        <Button layoutX="333.0" layoutY="335.0" mnemonicParsing="false" onAction="#addCar" text="Добавить" />
+                        <Button layoutX="419.0" layoutY="335.0" mnemonicParsing="false" onAction="#deleteCar" text="Удалить" />
+                        <Button layoutX="496.0" layoutY="335.0" mnemonicParsing="false" onAction="#updateCar" text="Изменить" />
                       </children>
                   </AnchorPane>
               </content>
