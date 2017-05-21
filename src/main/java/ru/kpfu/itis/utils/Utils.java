@@ -16,30 +16,19 @@ public class Utils {
         return false;
     }
 
-//    public static void showFrame(Stage stage, String title, ConfigControllers.View view) {
-//        stage = new Stage();
-//        stage.setTitle(title);
-//        stage.initModality(Modality.WINDOW_MODAL);
-//
-//        Scene scene = new Scene(view.getView());
-//        stage.setScene(scene);
-//
-//        stage.setResizable(true);
-//        stage.centerOnScreen();
-//        stage.show();
-//    }
 
-    public static void showFrame(String title, ConfigControllers.View view) {
-        Stage stage = new Stage();
+    public static void createFrame(String title, ConfigControllers.View view, Stage stage) {
         stage.setTitle(title);
         stage.initModality(Modality.WINDOW_MODAL);
 
-        Scene scene = new Scene(view.getView());
-        stage.setScene(scene);
+        if(view.getScene() == null) {
+            view.setScene(new Scene(view.getView()));
+        }
+
+        stage.setScene(view.getScene());
 
         stage.setResizable(true);
         stage.centerOnScreen();
-        stage.show();
     }
 
 }

@@ -7,7 +7,6 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
-import javafx.scene.layout.AnchorPane;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 import org.slf4j.Logger;
@@ -24,7 +23,7 @@ import javax.annotation.PostConstruct;
 import java.io.IOException;
 import java.util.List;
 
-import static ru.kpfu.itis.utils.Utils.showFrame;
+import static ru.kpfu.itis.utils.Utils.createFrame;
 
 
 /**
@@ -76,6 +75,12 @@ public class AdminController {
     @FXML private Label powerLabel;
     @FXML private Label priceLabel;
 
+    @Autowired
+    FormOrderController formOrderController;
+
+    @Autowired
+    FormCarController formCarController;
+
     private ObservableList<Car> carData;
 
     public void setOrderData(ObservableList<Order> orderData) {
@@ -96,53 +101,33 @@ public class AdminController {
         List<Order> orders = orderService.findAll();
         orderData = FXCollections.observableArrayList(orders);
 
-//        showOrderDetails(null);
-
         TableColumn<Order, String> nameColumn = new TableColumn<>("Клиент");
         nameColumn.setCellValueFactory(new PropertyValueFactory<>("name"));
+
+        TableColumn<Order, String> surnameColumn = new TableColumn<>("Surname");
+        surnameColumn.setCellValueFactory(new PropertyValueFactory<>("surname"));
 
         TableColumn<Order, String> modelColumn = new TableColumn<>("Модель");
         modelColumn.setCellValueFactory(new PropertyValueFactory<>("model"));
 
-        ordersTable.getColumns().setAll(nameColumn, modelColumn);
+        ordersTable.getColumns().setAll(nameColumn, surnameColumn, modelColumn);
 
         ordersTable.setItems(orderData);
-    }
 
-//    @FXML private Label nameCarLabel;
-//    @FXML private Label yearLabel;
-//    @FXML private Label runLabel;
-//    @FXML private Label powerLabel;
-//    @FXML private Label priceLabel;
-
-
-    private void showCarDetails(Car car){
-        if (car != null){
-            nameCarLabel.setText(car.getName());
-//            yearLabel
-
-        } else {
-
-        }
+        ordersTable.getSelectionModel().selectedItemProperty().addListener(
+                (observable, oldValue, newValue) -> showOrderDetails(newValue));
     }
 
     private void showOrderDetails(Order order){
+        order = ordersTable.getSelectionModel().getSelectedItem();
         if (order != null){
             surnameLabel.setText(order.getSurname());
             nameLabel.setText(order.getName());
             patronymicLabel.setText(order.getPatronymic());
-            phoneLabel.setText(String.valueOf(order.getPhone()));
+            phoneLabel.setText(order.getPhone());
             modelLabel.setText(order.getModel());
             gettingLabel.setText(order.getGetting());
             refundingLabel.setText(order.getRefunding());
-        } else {
-            surnameLabel.setText("");
-            nameLabel.setText("");
-            patronymicLabel.setText("");
-            phoneLabel.setText("");
-            modelLabel.setText("");
-            gettingLabel.setText("");
-            refundingLabel.setText("");
         }
     }
 
@@ -155,13 +140,21 @@ public class AdminController {
     private ConfigControllers.View formCarView;
 
     @FXML
-    public void addCar() throws IOException {
-        showFrame("Добавить автомобиль", formOrderView);
+    public void addOrder() throws IOException {
+        Stage formOrderStage = new Stage();
+        createFrame("Добавить бронь", formOrderView, formOrderStage);
+        formOrderController.setFormOrderStage(formOrderStage);
+        formOrderController.setData(orderData);
+        formOrderStage.show();
     }
 
     @FXML
-    public void addOrder() throws IOException{
-        showFrame("Добавить бронь", formOrderView);
+    public void addCar() throws IOException {
+        Stage formCarStage = new Stage();
+        createFrame("Добавить автомобиль", formCarView, formCarStage);
+        formCarController.setFormCarStage(formCarStage);
+        formCarController.setData(carData);
+        formCarStage.show();
     }
 
     @FXML
@@ -204,11 +197,19 @@ public class AdminController {
 
     @FXML
     public void updateOrder(){
-        showFrame("Изменить бронь", formOrderView);
+        Stage formOrderStage = new Stage();
+        createFrame("Изменить бронь", formOrderView, formOrderStage);
+        formOrderController.setFormOrderStage(formOrderStage);
+        formOrderController.setData(orderData);
+        formOrderStage.show();
     }
 
     @FXML
     public void updateCar(){
-        showFrame("Изменить автомобиль", formCarView);
+        Stage formCarStage = new Stage();
+        createFrame("Изменить автомобиль", formCarView, formCarStage);
+        formCarController.setFormCarStage(formCarStage);
+        formCarController.setData(carData);
+        formCarStage.show();
     }
 }

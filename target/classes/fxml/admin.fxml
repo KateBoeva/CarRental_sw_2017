@@ -35,20 +35,20 @@
                               <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                           </rowConstraints>
                            <children>
-                              <Label text="Фамилия:" />
+                              <Label text="Фамилия:" GridPane.rowIndex="0"/>
                               <Label text="Имя:" GridPane.rowIndex="1" />
                               <Label text="Отчество:" GridPane.rowIndex="2" />
                               <Label text="Телефон:" GridPane.rowIndex="3" />
                               <Label text="Марка/модель:" GridPane.rowIndex="4" />
                               <Label text="Дата выдачи:" GridPane.rowIndex="5" />
                               <Label text="Дата возврата:" GridPane.rowIndex="6" />
-                              <Label fx:id="surname" text="Label" GridPane.columnIndex="1" />
-                              <Label text="Label" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-                              <Label text="Label" GridPane.columnIndex="1" GridPane.rowIndex="2" />
-                              <Label text="Label" GridPane.columnIndex="1" GridPane.rowIndex="3" />
-                              <Label text="Label" GridPane.columnIndex="1" GridPane.rowIndex="4" />
-                              <Label text="Label" GridPane.columnIndex="1" GridPane.rowIndex="5" />
-                              <Label text="Label" GridPane.columnIndex="1" GridPane.rowIndex="6" />
+                              <Label fx:id="surnameLabel" GridPane.columnIndex="1" GridPane.rowIndex="0"/>
+                              <Label fx:id="nameLabel" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                              <Label fx:id="patronymicLabel" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                              <Label fx:id="phoneLabel" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                              <Label fx:id="modelLabel" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+                              <Label fx:id="gettingLabel" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+                              <Label fx:id="refundingLabel" GridPane.columnIndex="1" GridPane.rowIndex="6" />
                            </children>
                         </GridPane>
                         <Label layoutX="316.0" layoutY="24.0" text=" Данные о клиенте">

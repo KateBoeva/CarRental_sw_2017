@@ -1,11 +1,9 @@
 package ru.kpfu.itis.ui;
 
 import javafx.fxml.FXML;
-import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
-import javafx.stage.Modality;
 import javafx.stage.Stage;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -19,7 +17,7 @@ import ru.kpfu.itis.service.AuthService;
 import java.io.IOException;
 
 import static ru.kpfu.itis.utils.Utils.isEmpty;
-import static ru.kpfu.itis.utils.Utils.showFrame;
+import static ru.kpfu.itis.utils.Utils.createFrame;
 
 /**
  * Created by katemrrr on 12.05.17.
@@ -48,10 +46,14 @@ public class AuthController {
     @Autowired
     private ConfigControllers.View userView;
 
-    private Stage signUpStage;
-    private Stage adminStage;
-    private Stage userStage;
+    @Autowired
+    SignUpController signUpController;
 
+    @Autowired
+    UserController userController;
+
+    @Autowired
+    AdminController adminController;
 
     @FXML
     public void initialize() {}
@@ -61,9 +63,15 @@ public class AuthController {
 
             Token token = authService.auth(new User(loginField.getText(), passwordField.getText()));
             if(token.getStatus() == 1){
-                showFrame("Администратор", adminView);
+                Stage adminStage = new Stage();
+                createFrame("Администратор", adminView, adminStage);
+                adminController.setAdminStage(adminStage);
+                adminStage.show();
             } else if(token.getStatus() == 0){
-                showFrame("Пользователь", userView);
+                Stage userStage = new Stage();
+                createFrame("Пользователь", userView, userStage);
+                userController.setUserStage(userStage);
+                userStage.show();
             } else {
                 new Alert(Alert.AlertType.ERROR, "not valid user data")
                         .show();
@@ -72,7 +80,10 @@ public class AuthController {
     }
 
     public void signUp() throws IOException {
-        showFrame("Регистрация", signUpView);
+        Stage signUpStage = new Stage();
+        createFrame("Регистрация", signUpView, signUpStage);
+        signUpController.setSignUpStage(signUpStage);
+        signUpStage.show();
     }
 
     private boolean isValid(){

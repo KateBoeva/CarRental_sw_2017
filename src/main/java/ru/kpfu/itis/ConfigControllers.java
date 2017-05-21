@@ -2,6 +2,7 @@ package ru.kpfu.itis;
 
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
+import javafx.scene.Scene;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import ru.kpfu.itis.ui.*;
@@ -94,6 +95,7 @@ public class ConfigControllers {
     public class View {
         private Parent view;
         private Object controller;
+        private Scene scene;
 
         public View(Parent view, Object controller){
             this.view = view;
@@ -114,6 +116,14 @@ public class ConfigControllers {
 
         public void setController(Object controller) {
             this.controller = controller;
+        }
+
+        public Scene getScene() {
+            return scene;
+        }
+
+        public void setScene(Scene scene) {
+            this.scene = scene;
         }
     }
 

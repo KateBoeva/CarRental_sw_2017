@@ -29,25 +29,21 @@ public class SignUpController {
 
     @FXML private TextField loginTxt;
     @FXML private PasswordField passwordTxt;
-    @FXML private Button closeButton;
 
     private Stage signUpStage;
-
-    private User user = new User();
 
     @FXML public void initialize() {}
 
     @FXML
     public void cancelSignUp(){
-        Stage stage = (Stage) closeButton.getScene().getWindow();
-        stage.close();
+        signUpStage.close();
     }
 
     @FXML
     public void signUp(){
         if (isValidInput()){
             authService.register(new User(loginTxt.getText(), passwordTxt.getText(), false));
-
+            signUpStage.close();
         }
     }
 
@@ -70,4 +66,11 @@ public class SignUpController {
         return true;
     }
 
+    public void setSignUpStage(Stage signUpStage) {
+        this.signUpStage = signUpStage;
+    }
+
+    public Stage getSignUpStage() {
+        return signUpStage;
+    }
 }

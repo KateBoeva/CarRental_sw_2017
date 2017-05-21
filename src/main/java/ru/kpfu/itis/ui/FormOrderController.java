@@ -45,7 +45,6 @@ public class FormOrderController {
             Order order = new Order(surnameField.getText(), nameField.getText(), patronymicField.getText(), modelField.getText(), phoneField.getText(), gettingField.getText(), refundingField.getText());
             orderService.save(order);
             data.add(order);
-
             formOrderStage.close();
         }
     }
@@ -72,14 +71,17 @@ public class FormOrderController {
             return false;
         }
     }
-//
-    @FXML
-    public void cancelForm(){
-        formOrderStage.close();
-    }
 
     public void setData(ObservableList<Order> data) {
         this.data = data;
     }
 
+    @FXML
+    public void cancelForm(){
+//        formOrderStage.close();
+    }
+
+    public ObservableList<Order> getData() {
+        return data;
+    }
 }
