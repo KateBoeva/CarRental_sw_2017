@@ -18,7 +18,7 @@ public class FormOrderController {
 
     private Stage formOrderStage;
     private Long orderId;
-    private boolean isAdmin = false;
+    private boolean isAdmin;
 
     public void setFormOrderStage(Stage formOrderStage) {
         this.formOrderStage = formOrderStage;
@@ -55,8 +55,10 @@ public class FormOrderController {
                 }
                 data.add(newOrder);
             } else {
-                Alert alert = new Alert(Alert.AlertType.INFORMATION, "sps");
-                alert.show();
+                Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                alert.setTitle("Спасибо Вам!");
+                alert.setContentText("Спасибо вам за заказ. Наши операторы скоро вам перезвонят.");
+                alert.showAndWait();
             }
             formOrderStage.close();
         }
@@ -111,7 +113,11 @@ public class FormOrderController {
     }
 
     public void clearOrder() {
-        fillOrder(new Order("", "", "", "", "", "", ""));
+        if (isAdmin) {
+            fillOrder(new Order("", "", "", "", "", "", ""));
+        } else {
+            fillOrder(new Order("", "", "", "", "", "", ""));
+        }
     }
 
     public void setAdmin(boolean admin) {

@@ -227,6 +227,7 @@ public class AdminController {
             Stage formOrderStage = new Stage();
             createFrame("Изменить бронь", formOrderView, formOrderStage);
             formOrderController.setFormOrderStage(formOrderStage);
+            formOrderController.setAdmin(true);
             formOrderController.setData(orderData);
             formOrderController.fillOrder(order);
             formOrderStage.show();

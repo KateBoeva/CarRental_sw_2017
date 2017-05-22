@@ -3,6 +3,7 @@ package ru.kpfu.itis.ui;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
@@ -103,12 +104,21 @@ public class UserController {
 
     @FXML
     public void reserveCar() throws IOException{
-        Stage formOrderStage = new Stage();
-        createFrame("Добавить бронь", formOrderView, formOrderStage);
-        formOrderController.setFormOrderStage(formOrderStage);
-        formOrderController.setData(dataOrder);
-        formOrderController.clearOrder();
-        formOrderStage.show();
+        Car car = table.getSelectionModel().getSelectedItem();
+        if (car != null){
+            Stage formOrderStage = new Stage();
+            createFrame("Добавить бронь", formOrderView, formOrderStage);
+            formOrderController.setFormOrderStage(formOrderStage);
+            formOrderController.setData(dataOrder);
+            formOrderController.setAdmin(false);
+            formOrderController.clearOrder();
+            formOrderController.fillOrder(new Order("", "", "", modelLabel.getText(), "", "", ""));
+            formOrderStage.show();
+        } else {
+            Alert alert = new Alert(Alert.AlertType.ERROR, "Выберете машину!");
+            alert.showAndWait();
+        }
+
         int k = 0;
     }
 
