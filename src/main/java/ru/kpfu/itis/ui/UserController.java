@@ -39,9 +39,6 @@ public class UserController {
     @FXML private Label powerLabel;
     @FXML private Label priceLabel;
 
-    @FXML private TableColumn<Car, String> nameColumn;
-    @FXML private TableColumn<Car, String> priceColumn;
-
     @FXML private TableView<Car> table;
 
     private ObservableList<Car> dataCar;
@@ -78,10 +75,10 @@ public class UserController {
         List<Car> cars = carService.findAll();
         dataCar = FXCollections.observableArrayList(cars);
 
-        nameColumn = new TableColumn<>();
-        nameColumn.setCellValueFactory(new PropertyValueFactory<>("model"));
+        TableColumn<Car, String> nameColumn = new TableColumn<>("Модель");
+        nameColumn.setCellValueFactory(new PropertyValueFactory<>("name"));
 
-        priceColumn = new TableColumn<>();
+        TableColumn<Car, String> priceColumn = new TableColumn<>("Цена в час (руб.)");
         priceColumn.setCellValueFactory(new PropertyValueFactory<>("price"));
 
         table.getColumns().setAll(nameColumn, priceColumn);

@@ -96,10 +96,10 @@ public class FormCarController {
         carId = car.getId();
 
         nameField.setText(car.getName());
-        priceField.setText(java.lang.String.valueOf(car.getPrice()));
-        runField.setText(java.lang.String.valueOf(car.getRun()));
-        powerField.setText(java.lang.String.valueOf(car.getPower()));
-        yearField.setText(java.lang.String.valueOf(car.getYear()));
+        priceField.setText(car.getPrice() == 0 ? "" : String.valueOf(car.getPrice()));
+        runField.setText(car.getRun() == 0 ? "" : String.valueOf(car.getRun()));
+        powerField.setText(car.getPower() == 0 ? "" : String.valueOf(car.getPower()));
+        yearField.setText(car.getYear() == 0 ? "" : String.valueOf(car.getYear()));
     }
 
     public void clearCar() {

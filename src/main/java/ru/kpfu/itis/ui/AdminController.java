@@ -94,6 +94,8 @@ public class AdminController {
         List<Order> orders = orderService.findAll();
         orderData = FXCollections.observableArrayList(orders);
 
+        double tableWidth = ordersTable.getWidth();
+
         TableColumn<Order, String> nameColumn = new TableColumn<>("Клиент");
         nameColumn.setCellValueFactory(new PropertyValueFactory<>("name"));
 
@@ -165,6 +167,7 @@ public class AdminController {
         createFrame("Добавить бронь", formOrderView, formOrderStage);
         formOrderController.setFormOrderStage(formOrderStage);
         formOrderController.setData(orderData);
+        formOrderController.setAdmin(true);
         formOrderController.clearOrder();
         formOrderStage.show();
     }
@@ -227,6 +230,11 @@ public class AdminController {
             formOrderController.setData(orderData);
             formOrderController.fillOrder(order);
             formOrderStage.show();
+        } else {
+            Alert alert = new Alert(Alert.AlertType.ERROR," Error!");
+            alert.setTitle("Error!");
+            alert.setContentText("Select Item!");
+            alert.showAndWait();
         }
     }
 
@@ -240,6 +248,11 @@ public class AdminController {
             formCarController.setData(carData);
             formCarController.fillCar(car);
             formCarStage.show();
+        } else {
+            Alert alert = new Alert(Alert.AlertType.ERROR," Error!");
+            alert.setTitle("Error!");
+            alert.setContentText("Select Item!");
+            alert.showAndWait();
         }
     }
 

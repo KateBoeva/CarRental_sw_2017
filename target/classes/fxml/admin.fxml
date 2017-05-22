@@ -13,13 +13,16 @@
 
 <AnchorPane fx:id="adminPage" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="412.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.65" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ru.kpfu.itis.ui.AdminController">
    <children>
-      <TabPane fx:id="tabPane" prefHeight="412.0" prefWidth="600.0" tabClosingPolicy="UNAVAILABLE">
+      <TabPane fx:id="tabPane" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="412.0" prefWidth="600.0" tabClosingPolicy="UNAVAILABLE">
         <tabs>
-          <Tab fx:id="ordersTab" text="Брони">
+          <Tab fx:id="ordersTab" style="-fx-background-color: #f1f583;" text="Брони">
             <content>
-              <AnchorPane fx:id="ordersPage" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+              <AnchorPane fx:id="ordersPage" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="180.0" prefWidth="200.0" style="-fx-background-color: #f1f583; -fx-border-color: #f1f583;">
                      <children>
-                        <TableView fx:id="ordersTable" layoutX="14.0" layoutY="14.0" prefHeight="334.0" prefWidth="279.0" />
+                        <TableView fx:id="ordersTable" layoutX="14.0" layoutY="14.0" prefHeight="334.0" prefWidth="279.0" style="-fx-background-color: #f9ab67;">
+                           <columnResizePolicy>
+                              <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+                           </columnResizePolicy></TableView>
                         <GridPane layoutX="316.0" layoutY="62.0" prefHeight="256.0" prefWidth="242.0">
                           <columnConstraints>
                             <ColumnConstraints hgrow="SOMETIMES" maxWidth="123.0" minWidth="10.0" prefWidth="123.0" />
@@ -35,39 +38,90 @@
                               <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                           </rowConstraints>
                            <children>
-                              <Label text="Фамилия:" GridPane.rowIndex="0" />
-                              <Label text="Имя:" GridPane.rowIndex="1" />
-                              <Label text="Отчество:" GridPane.rowIndex="2" />
-                              <Label text="Телефон:" GridPane.rowIndex="3" />
-                              <Label text="Марка/модель:" GridPane.rowIndex="4" />
-                              <Label text="Дата выдачи:" GridPane.rowIndex="5" />
-                              <Label text="Дата возврата:" GridPane.rowIndex="6" />
-                              <Label fx:id="surnameLabel" GridPane.columnIndex="1" GridPane.rowIndex="0" />
-                              <Label fx:id="nameLabel" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-                              <Label fx:id="patronymicLabel" GridPane.columnIndex="1" GridPane.rowIndex="2" />
-                              <Label fx:id="phoneLabel" GridPane.columnIndex="1" GridPane.rowIndex="3" />
-                              <Label fx:id="modelLabel" GridPane.columnIndex="1" GridPane.rowIndex="4" />
-                              <Label fx:id="gettingLabel" GridPane.columnIndex="1" GridPane.rowIndex="5" />
-                              <Label fx:id="refundingLabel" GridPane.columnIndex="1" GridPane.rowIndex="6" />
+                              <Label text="Фамилия:" textFill="#5b3625" GridPane.rowIndex="0">
+                                 <font>
+                                    <Font name="Bradley Hand Bold" size="16.0" />
+                                 </font></Label>
+                              <Label text="Имя:" textFill="#5b3625" GridPane.rowIndex="1">
+                                 <font>
+                                    <Font name="Bradley Hand Bold" size="16.0" />
+                                 </font></Label>
+                              <Label text="Отчество:" textFill="#5b3625" GridPane.rowIndex="2">
+                                 <font>
+                                    <Font name="Bradley Hand Bold" size="16.0" />
+                                 </font></Label>
+                              <Label text="Телефон:" textFill="#5b3625" GridPane.rowIndex="3">
+                                 <font>
+                                    <Font name="Bradley Hand Bold" size="16.0" />
+                                 </font></Label>
+                              <Label text="Марка/модель:" textFill="#5b3625" GridPane.rowIndex="4">
+                                 <font>
+                                    <Font name="Bradley Hand Bold" size="16.0" />
+                                 </font></Label>
+                              <Label text="Дата выдачи:" textFill="#5b3625" GridPane.rowIndex="5">
+                                 <font>
+                                    <Font name="Bradley Hand Bold" size="16.0" />
+                                 </font></Label>
+                              <Label text="Дата возврата:" textFill="#5b3625" GridPane.rowIndex="6">
+                                 <font>
+                                    <Font name="Bradley Hand Bold" size="16.0" />
+                                 </font></Label>
+                              <Label fx:id="surnameLabel" GridPane.columnIndex="1" GridPane.rowIndex="0">
+                                 <font>
+                                    <Font name="Bradley Hand Bold" size="16.0" />
+                                 </font></Label>
+                              <Label fx:id="nameLabel" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                                 <font>
+                                    <Font name="Bradley Hand Bold" size="16.0" />
+                                 </font></Label>
+                              <Label fx:id="patronymicLabel" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                                 <font>
+                                    <Font name="Bradley Hand Bold" size="16.0" />
+                                 </font></Label>
+                              <Label fx:id="phoneLabel" GridPane.columnIndex="1" GridPane.rowIndex="3">
+                                 <font>
+                                    <Font name="Bradley Hand Bold" size="16.0" />
+                                 </font></Label>
+                              <Label fx:id="modelLabel" GridPane.columnIndex="1" GridPane.rowIndex="4">
+                                 <font>
+                                    <Font name="Bradley Hand Bold" size="16.0" />
+                                 </font></Label>
+                              <Label fx:id="gettingLabel" GridPane.columnIndex="1" GridPane.rowIndex="5">
+                                 <font>
+                                    <Font name="Bradley Hand Bold" size="16.0" />
+                                 </font></Label>
+                              <Label fx:id="refundingLabel" GridPane.columnIndex="1" GridPane.rowIndex="6">
+                                 <font>
+                                    <Font name="Bradley Hand Bold" size="16.0" />
+                                 </font></Label>
                            </children>
                         </GridPane>
-                        <Label layoutX="316.0" layoutY="24.0" text=" Данные о клиенте">
+                        <Label layoutX="315.0" layoutY="14.0" text=" Данные о клиенте" textFill="#5b3625">
                            <font>
-                              <Font size="18.0" />
+                              <Font name="Bradley Hand Bold" size="28.0" />
                            </font>
                         </Label>
-                        <Button layoutX="333.0" layoutY="335.0" mnemonicParsing="false" onAction="#addOrder" text="Добавить" />
-                        <Button layoutX="419.0" layoutY="335.0" mnemonicParsing="false" onAction="#deleteOrder" text="Удалить" />
-                        <Button layoutX="496.0" layoutY="335.0" mnemonicParsing="false" onAction="#updateOrder" text="Изменить" />
+                        <Button layoutX="316.0" layoutY="335.0" mnemonicParsing="false" onAction="#addOrder" prefHeight="31.0" prefWidth="84.0" style="-fx-background-color: #5b3625;" text="Добавить" textFill="WHITE">
+                           <font>
+                              <Font name="Bradley Hand Bold" size="14.0" />
+                           </font></Button>
+                        <Button layoutX="409.0" layoutY="335.0" mnemonicParsing="false" onAction="#deleteOrder" prefHeight="31.0" prefWidth="80.0" style="-fx-background-color: #5b3625;" text="Удалить" textFill="WHITE">
+                           <font>
+                              <Font name="Bradley Hand Bold" size="14.0" />
+                           </font></Button>
+                        <Button layoutX="498.0" layoutY="335.0" mnemonicParsing="false" onAction="#updateOrder" style="-fx-background-color: #5b3625;" text="Изменить" textFill="WHITE">
+                           <font>
+                              <Font name="Bradley Hand Bold" size="14.0" />
+                           </font></Button>
                      </children>
                   </AnchorPane>
             </content>
           </Tab>
-          <Tab fx:id="carsTab" text="Автомобили">
+          <Tab fx:id="carsTab" style="-fx-background-color: #f9ab67;" text="Автомобили">
               <content>
-                  <AnchorPane fx:id="cars" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                  <AnchorPane fx:id="cars" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="180.0" prefWidth="200.0" style="-fx-background-color: #f9ab67;">
                       <children>
-                          <TableView fx:id="carsTable" layoutX="14.0" layoutY="14.0" prefHeight="334.0" prefWidth="279.0" />
+                          <TableView fx:id="carsTable" layoutX="14.0" layoutY="14.0" prefHeight="334.0" prefWidth="279.0" style="-fx-background-color: #f1f583;" />
                           <GridPane layoutX="316.0" layoutY="62.0" prefHeight="256.0" prefWidth="242.0">
                               <columnConstraints>
                                   <ColumnConstraints hgrow="SOMETIMES" maxWidth="123.0" minWidth="10.0" prefWidth="123.0" />
@@ -81,26 +135,65 @@
                                   <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                               </rowConstraints>
                               <children>
-                                  <Label text="Марка/модель:" GridPane.rowIndex="0" />
-                                  <Label text="Год выпуска:" GridPane.rowIndex="1" />
-                                  <Label text="Пробег:" GridPane.rowIndex="2" />
-                                  <Label text="Мощность (л/с):" GridPane.rowIndex="3" />
-                                  <Label text="Цена за час:" GridPane.rowIndex="4" />
-                                  <Label fx:id="nameCarLabel" GridPane.columnIndex="1" GridPane.rowIndex="0" />
-                                  <Label fx:id="yearLabel" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-                                  <Label fx:id="runLabel" GridPane.columnIndex="1" GridPane.rowIndex="2" />
-                                  <Label fx:id="powerLabel" GridPane.columnIndex="1" GridPane.rowIndex="3" />
-                                  <Label fx:id="priceLabel" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+                                  <Label text="Марка/модель:" textFill="#5b3625" GridPane.rowIndex="0">
+                                 <font>
+                                    <Font name="Bradley Hand Bold" size="16.0" />
+                                 </font></Label>
+                                  <Label text="Год выпуска:" textFill="#5b3625" GridPane.rowIndex="1">
+                                 <font>
+                                    <Font name="Bradley Hand Bold" size="16.0" />
+                                 </font></Label>
+                                  <Label text="Пробег:" textFill="#5b3625" GridPane.rowIndex="2">
+                                 <font>
+                                    <Font name="Bradley Hand Bold" size="16.0" />
+                                 </font></Label>
+                                  <Label text="Мощность (л/с):" textFill="#5b3625" GridPane.rowIndex="3">
+                                 <font>
+                                    <Font name="Bradley Hand Bold" size="16.0" />
+                                 </font></Label>
+                                  <Label text="Цена за час:" textFill="#5b3625" GridPane.rowIndex="4">
+                                 <font>
+                                    <Font name="Bradley Hand Bold" size="16.0" />
+                                 </font></Label>
+                                  <Label fx:id="nameCarLabel" GridPane.columnIndex="1" GridPane.rowIndex="0">
+                                 <font>
+                                    <Font name="Bradley Hand Bold" size="16.0" />
+                                 </font></Label>
+                                  <Label fx:id="yearLabel" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                                 <font>
+                                    <Font name="Bradley Hand Bold" size="16.0" />
+                                 </font></Label>
+                                  <Label fx:id="runLabel" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                                 <font>
+                                    <Font name="Bradley Hand Bold" size="16.0" />
+                                 </font></Label>
+                                  <Label fx:id="powerLabel" GridPane.columnIndex="1" GridPane.rowIndex="3">
+                                 <font>
+                                    <Font name="Bradley Hand Bold" size="16.0" />
+                                 </font></Label>
+                                  <Label fx:id="priceLabel" GridPane.columnIndex="1" GridPane.rowIndex="4">
+                                 <font>
+                                    <Font name="Bradley Hand Bold" size="16.0" />
+                                 </font></Label>
                               </children>
                           </GridPane>
-                          <Label layoutX="316.0" layoutY="24.0" text=" Данные об автомобиле">
+                          <Label layoutX="308.0" layoutY="20.0" text=" Данные об автомобиле" textFill="#5b3625">
                               <font>
-                                  <Font size="18.0" />
+                                  <Font name="Bradley Hand Bold" size="25.0" />
                               </font>
                           </Label>
-                        <Button layoutX="333.0" layoutY="335.0" mnemonicParsing="false" onAction="#addCar" text="Добавить" />
-                        <Button layoutX="419.0" layoutY="335.0" mnemonicParsing="false" onAction="#deleteCar" text="Удалить" />
-                        <Button layoutX="496.0" layoutY="335.0" mnemonicParsing="false" onAction="#updateCar" text="Изменить" />
+                        <Button layoutX="316.0" layoutY="335.0" mnemonicParsing="false" onAction="#addCar" style="-fx-background-color: #5b3625;" text="Добавить" textFill="WHITE">
+                           <font>
+                              <Font name="Bradley Hand Bold" size="14.0" />
+                           </font></Button>
+                        <Button layoutX="410.0" layoutY="335.0" mnemonicParsing="false" onAction="#deleteCar" style="-fx-background-color: #5b3625;" text="Удалить" textFill="WHITE">
+                           <font>
+                              <Font name="Bradley Hand Bold" size="14.0" />
+                           </font></Button>
+                        <Button layoutX="498.0" layoutY="335.0" mnemonicParsing="false" onAction="#updateCar" style="-fx-background-color: #5b3625;" text="Изменить" textFill="WHITE">
+                           <font>
+                              <Font name="Bradley Hand Bold" size="14.0" />
+                           </font></Button>
                       </children>
                   </AnchorPane>
               </content>

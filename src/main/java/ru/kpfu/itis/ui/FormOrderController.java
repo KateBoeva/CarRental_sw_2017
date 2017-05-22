@@ -18,6 +18,7 @@ public class FormOrderController {
 
     private Stage formOrderStage;
     private Long orderId;
+    private boolean isAdmin = false;
 
     public void setFormOrderStage(Stage formOrderStage) {
         this.formOrderStage = formOrderStage;
@@ -45,13 +46,18 @@ public class FormOrderController {
             Order newOrder = new Order(surnameField.getText(), nameField.getText(), patronymicField.getText(), modelField.getText(), phoneField.getText(), gettingField.getText(), refundingField.getText());
             newOrder.setId(orderId);
             orderService.save(newOrder);
-            for (Order order : data) {
-                if(order.getId() == newOrder.getId()){
-                    data.remove(order);
-                    break;
+            if (isAdmin) {
+                for (Order order : data) {
+                    if (order.getId() == newOrder.getId()) {
+                        data.remove(order);
+                        break;
+                    }
                 }
+                data.add(newOrder);
+            } else {
+                Alert alert = new Alert(Alert.AlertType.INFORMATION, "sps");
+                alert.show();
             }
-            data.add(newOrder);
             formOrderStage.close();
         }
     }
@@ -106,5 +112,9 @@ public class FormOrderController {
 
     public void clearOrder() {
         fillOrder(new Order("", "", "", "", "", "", ""));
+    }
+
+    public void setAdmin(boolean admin) {
+        isAdmin = admin;
     }
 }

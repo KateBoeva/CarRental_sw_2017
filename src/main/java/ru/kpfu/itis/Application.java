@@ -27,7 +27,7 @@ public class Application extends ApplicationSupport {
     public void start(Stage stage) throws Exception {
         stage.setTitle(windowTitle);
         stage.setScene(new Scene(view.getView()));
-        stage.setResizable(true);
+        stage.setResizable(false);
         stage.centerOnScreen();
         stage.show();
         //TODO close stage, when user was sign in

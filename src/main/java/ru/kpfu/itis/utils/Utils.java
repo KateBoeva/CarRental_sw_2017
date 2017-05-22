@@ -27,7 +27,7 @@ public class Utils {
 
         stage.setScene(view.getScene());
 
-        stage.setResizable(true);
+        stage.setResizable(false);
         stage.centerOnScreen();
     }
 

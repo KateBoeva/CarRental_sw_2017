@@ -7,8 +7,9 @@
 <?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="357.0" prefWidth="303.0" xmlns="http://javafx.com/javafx/8.0.65" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ru.kpfu.itis.ui.FormCarController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="357.0" prefWidth="303.0" style="-fx-background-color: #f1f583;" xmlns="http://javafx.com/javafx/8.0.65" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ru.kpfu.itis.ui.FormCarController">
     <children>
         <GridPane layoutX="34.0" layoutY="35.0" prefHeight="256.0" prefWidth="242.0">
             <columnConstraints>
@@ -23,11 +24,26 @@
                 <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
             </rowConstraints>
             <children>
-                <Label text="Марка/модель:" />
-                <Label text="Год выпуска:" GridPane.rowIndex="1" />
-                <Label text="Пробег:" GridPane.rowIndex="2" />
-                <Label text="Мощность:" GridPane.rowIndex="3" />
-                <Label text="Цена за час:" GridPane.rowIndex="4" />
+                <Label text="Марка/модель:" textFill="#5b3625">
+               <font>
+                  <Font name="Bradley Hand Bold" size="15.0" />
+               </font></Label>
+                <Label text="Год выпуска:" textFill="#5b3625" GridPane.rowIndex="1">
+               <font>
+                  <Font name="Bradley Hand Bold" size="15.0" />
+               </font></Label>
+                <Label text="Пробег:" textFill="#5b3625" GridPane.rowIndex="2">
+               <font>
+                  <Font name="Bradley Hand Bold" size="15.0" />
+               </font></Label>
+                <Label text="Мощность:" textFill="#5b3625" GridPane.rowIndex="3">
+               <font>
+                  <Font name="Bradley Hand Bold" size="15.0" />
+               </font></Label>
+                <Label text="Цена за час:" textFill="#5b3625" GridPane.rowIndex="4">
+               <font>
+                  <Font name="Bradley Hand Bold" size="15.0" />
+               </font></Label>
                 <TextField fx:id="nameField" GridPane.columnIndex="1" />
                 <TextField fx:id="yearField" GridPane.columnIndex="1" GridPane.rowIndex="1" />
                 <TextField fx:id="runField" GridPane.columnIndex="1" GridPane.rowIndex="2" />
@@ -35,7 +51,13 @@
                 <TextField fx:id="priceField" GridPane.columnIndex="1" GridPane.rowIndex="4" />
             </children>
         </GridPane>
-      <Button layoutX="189.0" layoutY="307.0" mnemonicParsing="false" onAction="#addCar" text="Сохранить" />
-      <Button layoutX="116.0" layoutY="307.0" mnemonicParsing="false" onAction="#cancelForm" text="Отмена" />
+      <Button layoutX="189.0" layoutY="307.0" mnemonicParsing="false" onAction="#addCar" style="-fx-background-color: #5b3625;" text="Сохранить" textFill="WHITE">
+         <font>
+            <Font name="Bradley Hand Bold" size="14.0" />
+         </font></Button>
+      <Button layoutX="110.0" layoutY="307.0" mnemonicParsing="false" onAction="#cancelForm" style="-fx-background-color: #5b3625;" text="Отмена" textFill="WHITE">
+         <font>
+            <Font name="Bradley Hand Bold" size="14.0" />
+         </font></Button>
     </children>
 </AnchorPane>
