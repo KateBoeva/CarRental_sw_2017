@@ -23,8 +23,8 @@ public class AuthServiceImpl implements AuthService {
 
     @PostConstruct
     public void generateTestData() {
-        register(new User("adm", "adm", true));
-        register(new User("us", "us", false));
+        register(new User("admin", "admin", true));
+        register(new User("user", "user", false));
     }
 
     @Override

@@ -43,13 +43,9 @@ public class UserController {
     @FXML private TableView<Car> table;
 
     private ObservableList<Car> dataCar;
-    private ObservableList<Order> dataOrder;
 
     @Autowired
     private CarService carService;
-
-    @Autowired
-    private OrderService orderService;
 
     @Autowired
     FormOrderController formOrderController;
@@ -109,7 +105,6 @@ public class UserController {
             Stage formOrderStage = new Stage();
             createFrame("Добавить бронь", formOrderView, formOrderStage);
             formOrderController.setFormOrderStage(formOrderStage);
-            formOrderController.setData(dataOrder);
             formOrderController.setAdmin(false);
             formOrderController.clearOrder();
             formOrderController.fillOrder(new Order("", "", "", modelLabel.getText(), "", "", ""));
@@ -118,11 +113,6 @@ public class UserController {
             Alert alert = new Alert(Alert.AlertType.ERROR, "Выберете машину!");
             alert.showAndWait();
         }
-
-        int k = 0;
     }
 
-    public ObservableList<Car> getDataCar() {
-        return dataCar;
-    }
 }

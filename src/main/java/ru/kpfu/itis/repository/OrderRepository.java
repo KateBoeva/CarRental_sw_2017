@@ -12,7 +12,6 @@ import java.util.List;
  * Created by katemrrr on 12.05.17.
  */
 
-//@Transactional(propagation = Propagation.MANDATORY)
 @Repository
 public interface OrderRepository extends CrudRepository<Order, Long> {
 

@@ -61,6 +61,15 @@ public class FormCarController {
         }
     }
 
+    public boolean isInt(String s) {
+        try {
+            Integer.parseInt(s);
+            return true;
+        } catch (Exception ex) {
+            return false;
+        }
+    }
+
     public boolean isValidInput(){
         boolean isError = false;
 
@@ -68,6 +77,12 @@ public class FormCarController {
                 isEmpty(powerField.getText()) || isEmpty(yearField.getText())) {
             isError = true;
         }
+
+        if (!isInt(yearField.getText()) || !isInt(runField.getText()) ||
+                !isInt(powerField.getText()) || !isInt(priceField.getText())){
+            isError = true;
+        }
+
 
         if (isError){
             Alert alert = new Alert(Alert.AlertType.ERROR);

@@ -12,8 +12,6 @@ import java.util.List;
  * Created by katemrrr on 12.05.17.
  */
 
-
-//@Transactional(propagation = Propagation.MANDATORY)
 @Repository
 public interface CarRepository extends CrudRepository<Car, Long> {
 

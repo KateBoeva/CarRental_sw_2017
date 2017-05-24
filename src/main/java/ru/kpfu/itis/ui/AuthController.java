@@ -66,12 +66,17 @@ public class AuthController {
                 Stage adminStage = new Stage();
                 createFrame("Администратор", adminView, adminStage);
                 adminController.setAdminStage(adminStage);
+                adminController.refreshTable();
                 adminStage.show();
+                loginField.setText("");
+                passwordField.setText("");
             } else if(token.getStatus() == 0){
                 Stage userStage = new Stage();
                 createFrame("Пользователь", userView, userStage);
                 userController.setUserStage(userStage);
                 userStage.show();
+                loginField.setText("");
+                passwordField.setText("");
             } else {
                 new Alert(Alert.AlertType.ERROR, "not valid user data")
                         .show();

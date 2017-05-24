@@ -66,7 +66,7 @@ public class AdminController {
     @FXML private Label priceLabel;
 
     private Order order;
-    private Car car;
+//    private Car car;
 
     @Autowired
     FormOrderController formOrderController;
@@ -76,11 +76,21 @@ public class AdminController {
 
     private ObservableList<Car> carData;
 
-    public void setOrderData(ObservableList<Order> orderData) {
-        this.orderData = orderData;
-    }
+//    public void setOrderData(ObservableList<Order> orderData) {
+//        this.orderData = orderData;
+//    }
 
     private ObservableList<Order> orderData;
+
+//    private Order orderFromUser;
+
+//    public Order getOrderFromUser() {
+//        return orderFromUser;
+//    }
+//
+//    public void setOrderFromUser(Order orderFromUser) {
+//        this.orderFromUser = orderFromUser;
+//    }
 
     @FXML
     public void initialize() {}
@@ -91,10 +101,10 @@ public class AdminController {
     @PostConstruct
     public void init() {
 
+//        ordersTable.refresh();
+
         List<Order> orders = orderService.findAll();
         orderData = FXCollections.observableArrayList(orders);
-
-        double tableWidth = ordersTable.getWidth();
 
         TableColumn<Order, String> nameColumn = new TableColumn<>("Клиент");
         nameColumn.setCellValueFactory(new PropertyValueFactory<>("name"));
@@ -105,6 +115,8 @@ public class AdminController {
         ordersTable.getColumns().setAll(nameColumn, modelColumn);
 
         ordersTable.setItems(orderData);
+
+        ordersTable.refresh();
 
         ordersTable.getSelectionModel().selectedItemProperty().addListener(
                 (observable, oldValue, newValue) -> showOrderDetails(newValue)
@@ -257,11 +269,9 @@ public class AdminController {
         }
     }
 
-    public Order getOrder() {
-        return order;
+    public void refreshTable() {
+        List<Order> orders = orderService.findAll();
+        ordersTable.setItems(FXCollections.observableArrayList(orders));
     }
 
-    public void setOrder(Order order) {
-        this.order = order;
-    }
 }

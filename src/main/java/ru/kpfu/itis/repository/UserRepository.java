@@ -11,7 +11,6 @@ import ru.kpfu.itis.entity.User;
  * Created by katemrrr on 12.05.17.
  */
 
-//@Transactional(propagation = Propagation.MANDATORY)
 @Repository
 public interface UserRepository extends CrudRepository<User, Long> {
 

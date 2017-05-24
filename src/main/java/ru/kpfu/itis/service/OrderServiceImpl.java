@@ -24,7 +24,6 @@ public class OrderServiceImpl implements OrderService {
         this.orderRepository = orderRepository;
     }
 
-    // Добавить несколько записей
     @PostConstruct
     public void generateTestData() {
         save(new Order("Боев", "Сергей", "Петрович", "Kia Sportage", "89872846360", "23.06.2017", "25.06.2017"));

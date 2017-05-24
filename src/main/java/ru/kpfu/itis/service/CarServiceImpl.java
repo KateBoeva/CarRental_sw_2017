@@ -20,7 +20,6 @@ public class CarServiceImpl implements CarService{
     @Autowired
     CarRepository carRepository;
 
-    // Add few notes
     @PostConstruct
     public void generateTestData() {
         save(new Car("Kia Rio", 800, 28756, 100, 2014));
