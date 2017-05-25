@@ -59,8 +59,8 @@
                 <TextField fx:id="patronymicField" GridPane.columnIndex="1" GridPane.rowIndex="2" />
                 <TextField fx:id="phoneField" GridPane.columnIndex="1" GridPane.rowIndex="3" />
                 <TextField fx:id="modelField" GridPane.columnIndex="1" GridPane.rowIndex="4" />
-                <TextField fx:id="gettingField" GridPane.columnIndex="1" GridPane.rowIndex="5" />
-                <TextField fx:id="refundingField" GridPane.columnIndex="1" GridPane.rowIndex="6" />
+                <TextField fx:id="gettingField" promptText="дд.мм.гггг" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+                <TextField fx:id="refundingField" promptText="дд.мм.гггг" GridPane.columnIndex="1" GridPane.rowIndex="6" />
             </children>
         </GridPane>
         <Label fx:id="titleLabel" layoutX="100.0" layoutY="34.0">

@@ -28,6 +28,9 @@ public class FormOrderController {
     @Autowired
     private OrderService orderService;
 
+    @Autowired
+    AdminController adminController;
+
     private ObservableList<Order> data;
 
     @FXML private TextField surnameField;
@@ -43,7 +46,8 @@ public class FormOrderController {
     @FXML
     public void addOrder(){
         if (isValidInput()){
-            Order newOrder = new Order(surnameField.getText(), nameField.getText(), patronymicField.getText(), modelField.getText(), phoneField.getText(), gettingField.getText(), refundingField.getText());
+            Order newOrder = new Order(surnameField.getText(), nameField.getText(), patronymicField.getText(),
+                    modelField.getText(), phoneField.getText(), gettingField.getText(), refundingField.getText());
             newOrder.setId(orderId);
             orderService.save(newOrder);
             if (isAdmin) {
@@ -54,6 +58,7 @@ public class FormOrderController {
                     }
                 }
                 data.add(newOrder);
+                adminController.refreshTable();
             } else {
                 Alert alert = new Alert(Alert.AlertType.INFORMATION);
                 alert.setTitle("Спасибо Вам!");
@@ -64,22 +69,49 @@ public class FormOrderController {
         }
     }
 
+    public boolean isDate(String s){
+        try {
+            String day = s.substring(0, 2);
+            String month = s.substring(3, 5);
+            String year = s.substring(6, 10);
+            int d = Integer.parseInt(day);
+            int m = Integer.parseInt(month);
+            int y = Integer.parseInt(year);
+            if (d > 31 || d < 0 || m > 12 || m < 0 || y < 0){
+                return false;
+            }
+            return true;
+        } catch (Exception e) {
+            return false;
+        }
+    }
+
     public boolean isValidInput(){
-        boolean error = true;
+        boolean isError = false;
+        boolean isDateError = false;
 
         if (isEmpty(surnameField.getText()) || isEmpty(nameField.getText()) || isEmpty(patronymicField.getText()) || isEmpty(phoneField.getText()) ||
                 isEmpty(modelField.getText()) || isEmpty(gettingField.getText()) || isEmpty(refundingField.getText())) {
-            error = false;
+            isError = true;
         }
 
-        if (error){
-            return error;
+        if (!isDate(refundingField.getText()) || !isDate(gettingField.getText())){
+            isError = true;
+            isDateError = true;
+        }
+
+        if (!isError){
+            return true;
         } else {
             Alert alert = new Alert(Alert.AlertType.ERROR);
             alert.initOwner(formOrderStage);
             alert.setHeaderText("Correct invalid fields!");
             alert.setTitle("Invalid Fields");
-            alert.setContentText("Введите корректные данные!");
+            if (isDateError){
+                alert.setContentText("Введите дату в формате дд.мм.гггг.");
+            } else {
+                alert.setContentText("Введите корректные данные!");
+            }
 
             alert.showAndWait();
 

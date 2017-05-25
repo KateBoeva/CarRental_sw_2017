@@ -66,7 +66,6 @@ public class AdminController {
     @FXML private Label priceLabel;
 
     private Order order;
-//    private Car car;
 
     @Autowired
     FormOrderController formOrderController;
@@ -76,21 +75,7 @@ public class AdminController {
 
     private ObservableList<Car> carData;
 
-//    public void setOrderData(ObservableList<Order> orderData) {
-//        this.orderData = orderData;
-//    }
-
     private ObservableList<Order> orderData;
-
-//    private Order orderFromUser;
-
-//    public Order getOrderFromUser() {
-//        return orderFromUser;
-//    }
-//
-//    public void setOrderFromUser(Order orderFromUser) {
-//        this.orderFromUser = orderFromUser;
-//    }
 
     @FXML
     public void initialize() {}
@@ -100,8 +85,6 @@ public class AdminController {
     @SuppressWarnings("unchecked")
     @PostConstruct
     public void init() {
-
-//        ordersTable.refresh();
 
         List<Order> orders = orderService.findAll();
         orderData = FXCollections.observableArrayList(orders);
