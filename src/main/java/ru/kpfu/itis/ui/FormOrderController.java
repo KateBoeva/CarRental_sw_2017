@@ -9,6 +9,13 @@ import org.springframework.beans.factory.annotation.Autowired;
 import ru.kpfu.itis.entity.Order;
 import ru.kpfu.itis.service.OrderService;
 
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
+import java.util.Locale;
+
 import static ru.kpfu.itis.utils.Utils.isEmpty;
 
 /**
@@ -65,11 +72,17 @@ public class FormOrderController {
                 alert.setContentText("Спасибо вам за заказ. Наши операторы скоро вам перезвонят.");
                 alert.showAndWait();
             }
+            adminController.refreshTable();
             formOrderStage.close();
         }
     }
 
-    public boolean isDate(String s){
+    private boolean validateData(){
+        return !(isEmpty(surnameField.getText()) || isEmpty(nameField.getText()) || isEmpty(patronymicField.getText()) || isEmpty(phoneField.getText()) ||
+                isEmpty(modelField.getText()) || isEmpty(gettingField.getText()) || isEmpty(refundingField.getText()));
+    }
+
+    private boolean validateDate(String s){
         try {
             String day = s.substring(0, 2);
             String month = s.substring(3, 5);
@@ -86,37 +99,51 @@ public class FormOrderController {
         }
     }
 
-    public boolean isValidInput(){
-        boolean isError = false;
-        boolean isDateError = false;
-
-        if (isEmpty(surnameField.getText()) || isEmpty(nameField.getText()) || isEmpty(patronymicField.getText()) || isEmpty(phoneField.getText()) ||
-                isEmpty(modelField.getText()) || isEmpty(gettingField.getText()) || isEmpty(refundingField.getText())) {
-            isError = true;
-        }
-
-        if (!isDate(refundingField.getText()) || !isDate(gettingField.getText())){
-            isError = true;
-            isDateError = true;
-        }
-
-        if (!isError){
-            return true;
-        } else {
-            Alert alert = new Alert(Alert.AlertType.ERROR);
-            alert.initOwner(formOrderStage);
-            alert.setHeaderText("Correct invalid fields!");
-            alert.setTitle("Invalid Fields");
-            if (isDateError){
-                alert.setContentText("Введите дату в формате дд.мм.гггг.");
-            } else {
-                alert.setContentText("Введите корректные данные!");
-            }
-
-            alert.showAndWait();
-
+    private boolean checkDate(){
+        DateFormat format = new SimpleDateFormat("dd.MM.yyyy", Locale.getDefault());
+        Date gdate;
+        Date rdate;
+        Calendar curDate = Calendar.getInstance(Locale.getDefault());
+        Date cdate;
+        try {
+            String today = new Date().toLocaleString();
+            cdate = format.parse(today.substring(0, today.indexOf(" ")));
+            gdate = format.parse(gettingField.getText());
+            rdate = format.parse(refundingField.getText());
+        } catch (ParseException e) {
+            e.printStackTrace();
             return false;
         }
+
+        if(!gdate.before(cdate) && !rdate.before(gdate))
+            return true;
+        return false;
+    }
+
+    public boolean isValidInput(){
+        boolean isValid = true;
+        Alert alert = new Alert(Alert.AlertType.ERROR);
+        alert.initOwner(formOrderStage);
+
+        if (!validateData()) {
+            alert.setContentText("Введите корректные данные!");
+            isValid = false;
+        } else if (!validateDate(refundingField.getText())){
+            alert.setContentText("Введите дату возврата в формате дд.мм.гггг.");
+            isValid = false;
+        } else if (!validateDate(gettingField.getText())){
+            alert.setContentText("Введите дату выдачи в формате дд.мм.гггг.");
+            isValid = false;
+        } else if (!checkDate()){
+            alert.setContentText("Введите корректную дату!");
+            isValid = false;
+        }
+
+        if(!isValid){
+            alert.showAndWait();
+        }
+
+        return isValid;
     }
 
     public void setData(ObservableList<Order> data) {
